@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C049BB12AFD467900012905 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB02AFD467900012905 /* LoginVC.swift */; };
+		8C049BB32AFD46D700012905 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB22AFD46D700012905 /* OnboardingVC.swift */; };
 		8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */; };
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5DD2AFD41080003DD45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DC2AFD41080003DD45 /* ViewController.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C049BB02AFD467900012905 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8C049BB22AFD46D700012905 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		8C7DF5D52AFD41080003DD45 /* CodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */,
 				8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */,
 				8C7DF5DC2AFD41080003DD45 /* ViewController.swift */,
+				8C049BB02AFD467900012905 /* LoginVC.swift */,
+				8C049BB22AFD46D700012905 /* OnboardingVC.swift */,
 				8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */,
 				8C7DF5E32AFD410A0003DD45 /* LaunchScreen.storyboard */,
 				8C7DF5E62AFD410A0003DD45 /* Info.plist */,
@@ -136,6 +142,8 @@
 			files = (
 				8C7DF5DD2AFD41080003DD45 /* ViewController.swift in Sources */,
 				8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */,
+				8C049BB32AFD46D700012905 /* OnboardingVC.swift in Sources */,
+				8C049BB12AFD467900012905 /* LoginVC.swift in Sources */,
 				8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
