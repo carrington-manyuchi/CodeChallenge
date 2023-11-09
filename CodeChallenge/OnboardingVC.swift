@@ -1,7 +1,5 @@
-//
 //  OnboardingVC.swift
 //  CodeChallenge
-//
 //  Created by DA MAC M1 157 on 2023/11/09.
 //
 
@@ -38,10 +36,7 @@ class OnboardingVC: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(nextButton)
         configureConstraints()
-        
-        
         nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
-        
     }
     
     @objc private func didTapNextButton() {
@@ -52,6 +47,7 @@ class OnboardingVC: UIViewController {
     }
     
     private func configureConstraints() {
+        
         let welcomeLabeConstraints = [
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             welcomeLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),

@@ -8,6 +8,13 @@
 import UIKit
 
 class LoginVC: UIViewController {
+    
+    
+    private let loginTitleLabel: UILabel = {
+        let label = UILabel()
+        return label
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
