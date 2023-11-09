@@ -25,23 +25,45 @@ class EmployeesTableViewCell: UITableViewCell {
 
     private let displayNameLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Carrington"
+        label.font = .systemFont(ofSize: 20, weight: .regular)
         return label
     }()
     
     
-    private let emailLabel: UILabel = {
+    private let displayEmailLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "carrington@gmail.com"
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-          
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    // first lets initialize our views
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        contentView.addSubview(avatarImageView)
+        contentView.addSubview(displayNameLabel)
+        contentView.addSubview(displayEmailLabel)
+        configureConstraints()
     }
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    private func configureConstraints() {
+        let avatarImageViewConstraints = [
+            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 50),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 50),
+            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 15)
+        ]
+    }
+    
 }
