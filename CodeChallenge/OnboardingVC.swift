@@ -23,7 +23,7 @@ class OnboardingVC: UIViewController {
     private let nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Go Next", for: .normal)
+        button.setTitle("Click Next", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 28, weight: .bold)
         button.backgroundColor = .customBlueColor
         button.layer.masksToBounds = true
@@ -38,6 +38,17 @@ class OnboardingVC: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(nextButton)
         configureConstraints()
+        
+        
+        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        
+    }
+    
+    @objc private func didTapNextButton() {
+        let vc = UINavigationController(rootViewController: LoginVC())
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .flipHorizontal
+        present(vc, animated: true)
     }
     
     private func configureConstraints() {
@@ -49,8 +60,8 @@ class OnboardingVC: UIViewController {
                 
         let nextButtonConstraints = [
             nextButton.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 20),
-            nextButton.widthAnchor.constraint(equalToConstant: 250),
-            nextButton.heightAnchor.constraint(equalToConstant: 65),
+            nextButton.widthAnchor.constraint(equalTo: welcomeLabel.widthAnchor),
+            nextButton.heightAnchor.constraint(equalToConstant: 60),
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         
