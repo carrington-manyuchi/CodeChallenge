@@ -24,8 +24,8 @@ class OnboardingVC: UIViewController {
         button.setTitle("Click Next", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 28, weight: .bold)
         button.backgroundColor = .customBlueColor
-        button.layer.masksToBounds = true
         button.tintColor = .white
+        button.layer.masksToBounds = true
         button.layer.cornerRadius = 30
         return button
     }()
