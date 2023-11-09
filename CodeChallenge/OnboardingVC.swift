@@ -21,9 +21,24 @@ class OnboardingVC: UIViewController {
     }()
     
     
+    private let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Go Next", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 28, weight: .bold)
+        button.backgroundColor = .customBlueColor
+        button.layer.masksToBounds = true
+        button.tintColor = .white
+        button.layer.cornerRadius = 30
+        return button
+    }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemBackground
 
     }
 
