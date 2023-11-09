@@ -20,7 +20,23 @@ class LoginVC: UIViewController {
 
     }()
     
+    private let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.keyboardType = .emailAddress
+        textField.borderStyle = .line
+        textField.placeholder = "Enter email"
+        return  textField
+    }()
     
+    
+    private let passwordtextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isSecureTextEntry = true
+        textField.placeholder = "Enter password"
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
