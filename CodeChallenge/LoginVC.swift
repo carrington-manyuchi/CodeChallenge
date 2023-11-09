@@ -14,7 +14,7 @@ class LoginVC: UIViewController {
         let label = UILabel()
         return label
         
-    }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
