@@ -54,9 +54,8 @@ class EmployeeDetailsVC: UIViewController {
     private let placeOfBirth: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.keyboardType = .default
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .line
         textField.placeholder = "Place of birth"
         return  textField
     }()
@@ -114,7 +113,8 @@ class EmployeeDetailsVC: UIViewController {
         let placeOfBirthConstraints = [
             placeOfBirth.topAnchor.constraint(equalTo: dateOfBirth.bottomAnchor, constant: 30),
             placeOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
-            placeOfBirth.widthAnchor.constraint(equalToConstant: 200)
+            placeOfBirth.widthAnchor.constraint(equalToConstant: 200),
+            placeOfBirth.heightAnchor.constraint(equalToConstant: 40),
         ]
         
         NSLayoutConstraint.activate(avatarImageViewConstraints)
