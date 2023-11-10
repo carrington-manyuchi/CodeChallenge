@@ -12,7 +12,7 @@
 		8C049BB72AFD495900012905 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB62AFD495900012905 /* Extension+UIColor.swift */; };
 		8C049BB92AFD674700012905 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB82AFD674700012905 /* EmployeesViewController.swift */; };
 		8C049BBB2AFD67EA00012905 /* EmployeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */; };
-		8C049BBD2AFDECB200012905 /* EmployeeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BBC2AFDECB200012905 /* EmployeeDetailsViewController.swift */; };
+		8C049BBD2AFDECB200012905 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BBC2AFDECB200012905 /* DashboardViewController.swift */; };
 		8C049BBF2AFDEEED00012905 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C049BBE2AFDEEED00012905 /* Storyboard.storyboard */; };
 		8C049BC12AFE05A300012905 /* AdditionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BC02AFE05A300012905 /* AdditionalInfo.swift */; };
 		8C049BC32AFE249100012905 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BC22AFE249100012905 /* ReviewViewController.swift */; };
@@ -43,7 +43,7 @@
 		8C049BB62AFD495900012905 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		8C049BB82AFD674700012905 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewCell.swift; sourceTree = "<group>"; };
-		8C049BBC2AFDECB200012905 /* EmployeeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsViewController.swift; sourceTree = "<group>"; };
+		8C049BBC2AFDECB200012905 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8C049BBE2AFDEEED00012905 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8C049BC02AFE05A300012905 /* AdditionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfo.swift; sourceTree = "<group>"; };
 		8C049BC22AFE249100012905 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				8C049BD12AFE66D900012905 /* Models */,
 				8C049BCE2AFE5E3F00012905 /* Services */,
 				8C049BC22AFE249100012905 /* ReviewViewController.swift */,
-				8C049BBC2AFDECB200012905 /* EmployeeDetailsViewController.swift */,
+				8C049BBC2AFDECB200012905 /* DashboardViewController.swift */,
 				8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */,
 				8C049BB22AFD46D700012905 /* OnboardingViewController.swift */,
 				8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */,
@@ -244,7 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C049BBD2AFDECB200012905 /* EmployeeDetailsViewController.swift in Sources */,
+				8C049BBD2AFDECB200012905 /* DashboardViewController.swift in Sources */,
 				8C049BDC2AFE70F700012905 /* LoginViewModel.swift in Sources */,
 				8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */,
 				8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */,

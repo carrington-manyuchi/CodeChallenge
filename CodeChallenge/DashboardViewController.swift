@@ -7,12 +7,22 @@
 
 import UIKit
 
-class EmployeeDetailsViewController: BaseViewController {
+class DashboardViewController: BaseViewController {
+    
+    
+    private let dashboardTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Select an Employee"
+        label.textColor  = .label
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        return label
+    }()
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "person")
@@ -37,6 +47,14 @@ class EmployeeDetailsViewController: BaseViewController {
         return label
     }()
     
+    private let nextImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "chevron.forward")
+        imageView.tintColor = .gray
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     private let dateOfBirth: UIDatePicker = {
         let date = UIDatePicker()
@@ -49,7 +67,6 @@ class EmployeeDetailsViewController: BaseViewController {
         date.maximumDate = Date(timeIntervalSinceNow: 0)
         return date
     }()
-    
     
     private let placeOfBirth: UITextField = {
         let textField = UITextField()
@@ -64,8 +81,6 @@ class EmployeeDetailsViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         configureConstraints()
-        title = "Employee Detail"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextButtonTapped))
     }
     
     @objc private func nextButtonTapped() {
@@ -75,6 +90,7 @@ class EmployeeDetailsViewController: BaseViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
+        view.addSubview(dashboardTitleLabel)
         view.addSubview(avatarImageView)
         view.addSubview(displayNameLabel)
         view.addSubview(emailLabel)
@@ -84,11 +100,17 @@ class EmployeeDetailsViewController: BaseViewController {
     
     private func configureConstraints() {
         
+        
+        let dashboardTitleLabelConstraints = [
+            dashboardTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            dashboardTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
+        ]
+        
         let avatarImageViewConstraints = [
-            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 100)
+            avatarImageView.topAnchor.constraint(equalTo: dashboardTitleLabel.bottomAnchor, constant: 15),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 40),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 40)
         ]
         
         let displayNameLabelConstraints = [
@@ -109,7 +131,6 @@ class EmployeeDetailsViewController: BaseViewController {
             dateOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
         ]
         
-        
         let placeOfBirthConstraints = [
             placeOfBirth.topAnchor.constraint(equalTo: dateOfBirth.bottomAnchor, constant: 30),
             placeOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
@@ -117,6 +138,7 @@ class EmployeeDetailsViewController: BaseViewController {
             placeOfBirth.heightAnchor.constraint(equalToConstant: 40),
         ]
         
+        NSLayoutConstraint.activate(dashboardTitleLabelConstraints)
         NSLayoutConstraint.activate(avatarImageViewConstraints)
         NSLayoutConstraint.activate(displayNameLabelConstraints)
         NSLayoutConstraint.activate(emailLabelConstraints)

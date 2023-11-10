@@ -109,7 +109,7 @@ extension LoginViewController: LoginDelegate {
     
     func navigateToHomeScreenOnLoginSuccess() {
         
-        let vc  = EmployeesViewController()
+        let vc  = DashboardViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

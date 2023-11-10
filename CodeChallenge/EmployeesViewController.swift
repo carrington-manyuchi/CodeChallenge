@@ -60,7 +60,7 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = EmployeeDetailsViewController()
+        let vc = DashboardViewController()
             
             self.navigationController?.pushViewController(vc, animated: true)
         
