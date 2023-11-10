@@ -19,18 +19,20 @@ class EmployeesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(employeesTableView)
         title = "Employees List"
-        
-       employeesTableView.delegate = self
-        employeesTableView.dataSource = self
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        setupUI()
         configureConstraints()
-        view.backgroundColor = .systemBackground
-
     }
     
-    public func configureConstraints() {
+    private func setupUI() {
+        view.addSubview(employeesTableView)
+        employeesTableView.delegate = self
+        employeesTableView.dataSource = self
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func configureConstraints() {
         let employeesTableViewConstraints = [
             employeesTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             employeesTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
