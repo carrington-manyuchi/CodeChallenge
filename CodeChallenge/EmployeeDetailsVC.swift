@@ -65,6 +65,13 @@ class EmployeeDetailsVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         configureConstraints()
+        title = "Employee Detail"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextButtonTapped))
+    }
+    
+    @objc private func nextButtonTapped() {
+        let vc = AdditionalInfo()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setupUI() {
