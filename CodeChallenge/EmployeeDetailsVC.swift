@@ -12,7 +12,7 @@ class EmployeeDetailsVC: UIViewController {
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "person")
@@ -29,7 +29,7 @@ class EmployeeDetailsVC: UIViewController {
         return label
     }()
     
-    private let displayEmailLabel: UILabel = {
+    private let emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "carrington@gmail.com"
@@ -37,11 +37,54 @@ class EmployeeDetailsVC: UIViewController {
         return label
     }()
     
+    
+    private let dateOfBirth: UIDatePicker = {
+        let date = UIDatePicker()
+        date.datePickerMode = .date
+        date.locale = Locale.current
+        date.timeZone = .current
+        date.date = Date(timeIntervalSince1970: 10)
+        date.minimumDate = Date(timeIntervalSince1970: 20)
+        date.maximumDate = Date(timeIntervalSinceNow: 0)
+        return date
+    }()
+    
+    
+    private let placeOfBirth: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.keyboardType = .default
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "place of birth"
+        return  textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-
+        setupUI()
+        configureConstraints()
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(avatarImageView)
+        view.addSubview(displayNameLabel)
+        view.addSubview(emailLabel)
+        view.addSubview(dateOfBirth)
+        view.addSubview(placeOfBirth)
+    }
+    
+    private func configureConstraints() {
+        
+        let avatarImageViewConstraints = [
+            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100)
+        ]
+        
+        displayNameLabelConstraints = [
+        ]
     }
 
 
