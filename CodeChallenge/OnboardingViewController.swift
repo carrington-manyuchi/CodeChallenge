@@ -5,7 +5,7 @@
 
 import UIKit
 
-class OnboardingVC: BaseViewController {
+class OnboardingViewController: BaseViewController {
     
     private let welcomeLabel: UILabel = {
         let label = UILabel()
@@ -22,11 +22,11 @@ class OnboardingVC: BaseViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Click Next", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 28, weight: .bold)
+        button.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
         button.backgroundColor = .customBlueColor
         button.tintColor = .white
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 10
         return button
     }()
     
@@ -40,7 +40,7 @@ class OnboardingVC: BaseViewController {
     }
     
     @objc internal override func didTapNextButton() {
-        let vc = UINavigationController(rootViewController: LoginVC())
+        let vc = UINavigationController(rootViewController: LoginViewController())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true)
@@ -56,9 +56,9 @@ class OnboardingVC: BaseViewController {
                 
         let nextButtonConstraints = [
             nextButton.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 20),
-            nextButton.widthAnchor.constraint(equalTo: welcomeLabel.widthAnchor),
-            nextButton.heightAnchor.constraint(equalToConstant: 60),
-            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            nextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            nextButton.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            nextButton.heightAnchor.constraint(equalToConstant: 45),
         ]
         
         NSLayoutConstraint.activate(welcomeLabeConstraints)

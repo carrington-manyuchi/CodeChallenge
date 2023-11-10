@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewVC: BaseViewController {
+class ReviewViewController: BaseViewController {
     
     private let personalDetailsLabel: UILabel = {
         let label = UILabel()

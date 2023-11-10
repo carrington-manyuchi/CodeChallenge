@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginVC: BaseViewController {
+class LoginViewController: BaseViewController {
     
     private let loginTitleLabel: UILabel = {
         let label = UILabel()
@@ -22,8 +22,8 @@ class LoginVC: BaseViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.keyboardType = .emailAddress
+        textField.placeholder = "Enter email..."
         textField.borderStyle = .roundedRect
-        textField.placeholder = "Enter email"
         textField.autocapitalizationType = .none
         return  textField
     }()
@@ -31,9 +31,9 @@ class LoginVC: BaseViewController {
     private let passwordtextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = true
         textField.placeholder = "Enter password"
-        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -42,10 +42,13 @@ class LoginVC: BaseViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = .customBlueColor
-        button.tintColor = .white
+        button.backgroundColor = .red
+        button.setTitleColor(.white, for: .normal)
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
+        button.layer.shadowOffset = CGSize(width: 3, height: 7)
+        button.layer.shadowRadius = 7
+        button.layer.shadowOpacity = 0.9
         return button
     }()
     
@@ -70,29 +73,29 @@ class LoginVC: BaseViewController {
     private func configureConstraints() {
         
         let loginTitleLabelConstraints = [
-            loginTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            loginTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             loginTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         
         let emailTextFieldConstraints = [
-            emailTextField.topAnchor.constraint(equalTo: loginTitleLabel.bottomAnchor, constant: 30),
-            emailTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            emailTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            emailTextField.topAnchor.constraint(equalTo: loginTitleLabel.bottomAnchor, constant: 50),
+            emailTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 35),
+            emailTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -35),
             emailTextField.heightAnchor.constraint(equalToConstant: 45)
         ]
         
         let passwordtextFieldConstraints = [
-            passwordtextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40),
-            passwordtextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            passwordtextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            passwordtextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 30),
+            passwordtextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            passwordtextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             passwordtextField.heightAnchor.constraint(equalToConstant: 45)
         ]
         
         let loginButtonConstraints = [
             loginButton.topAnchor.constraint(equalTo: passwordtextField.bottomAnchor, constant: 30),
-            loginButton.leadingAnchor.constraint(equalTo: passwordtextField.leadingAnchor),
-            loginButton.heightAnchor.constraint(equalToConstant: 40),
-            loginButton.widthAnchor.constraint(equalToConstant: 200)
+            loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
         ]
         
         NSLayoutConstraint.activate(loginTitleLabelConstraints)
@@ -102,11 +105,11 @@ class LoginVC: BaseViewController {
     }
 }
 
-extension LoginVC: LoginDelegate {
+extension LoginViewController: LoginDelegate {
     
     func navigateToHomeScreenOnLoginSuccess() {
         
-        let vc  = EmployeesVC()
+        let vc  = EmployeesViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

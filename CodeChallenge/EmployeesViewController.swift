@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeesVC: BaseViewController {
+class EmployeesViewController: BaseViewController {
     
     private let employeesTableView: UITableView = {
         let tableView = UITableView()
@@ -47,7 +47,7 @@ class EmployeesVC: BaseViewController {
     }
 }
 
-extension EmployeesVC: UITableViewDelegate, UITableViewDataSource {
+extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -60,7 +60,7 @@ extension EmployeesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = EmployeeDetailsVC()
+        let vc = EmployeeDetailsViewController()
             
             self.navigationController?.pushViewController(vc, animated: true)
         
