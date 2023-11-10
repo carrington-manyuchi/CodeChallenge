@@ -26,11 +26,10 @@ class EmployeesTableViewCell: UITableViewCell {
     private let displayNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Carrington"
+        label.text = "Carrington Manyuchi"
         label.font = .systemFont(ofSize: 20, weight: .regular)
         return label
     }()
-    
     
     private let displayEmailLabel: UILabel = {
         let label = UILabel()
@@ -54,16 +53,29 @@ class EmployeesTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     private func configureConstraints() {
         let avatarImageViewConstraints = [
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             avatarImageView.heightAnchor.constraint(equalToConstant: 50),
             avatarImageView.widthAnchor.constraint(equalToConstant: 50),
-            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 15)
+            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ]
+        
+        let displayNameLabelConstraints = [
+            displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20),
+            displayNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor)
+        ]
+        
+        let displayEmailLabelConstraints = [
+            displayEmailLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20),
+            displayEmailLabel.topAnchor.constraint(equalTo: displayNameLabel.bottomAnchor, constant: 2),
+            //displayEmailLabel.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(avatarImageViewConstraints)
+        NSLayoutConstraint.activate(displayNameLabelConstraints)
+        NSLayoutConstraint.activate(displayEmailLabelConstraints)
     }
     
 }

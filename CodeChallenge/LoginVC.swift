@@ -56,7 +56,15 @@ class LoginVC: UIViewController {
         view.addSubview(passwordtextField)
         view.addSubview(loginButton)
         configureConstraints()
+        
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
+    
+    @objc private func didTapLoginButton() {
+        let vc = UINavigationController(rootViewController: EmployeesVC())
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     private func configureConstraints() {
         
