@@ -72,7 +72,7 @@ class ReviewVC: UIViewController {
     private let colorNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "20 Dec 1998"
+        label.text = "Brown"
         label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
@@ -80,7 +80,7 @@ class ReviewVC: UIViewController {
     private let placeOfBirthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "20 Dec 1998"
+        label.text = "Netcare, Johannesburg"
         label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
@@ -88,7 +88,7 @@ class ReviewVC: UIViewController {
     private let residentialAddressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "20 Dec 1998"
+        label.text = "Fourways, Extension 10"
         label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
@@ -101,14 +101,18 @@ class ReviewVC: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        
-        //personal details
+        /** Personal details  setup**/
         view.addSubview(personalDetailsLabel)
         view.addSubview(avatarImageView)
         view.addSubview(displayFullNameLabel)
         view.addSubview(dateOfBirthLabel)
         view.addSubview(emailLabel)
         view.addSubview(genderLabel)
+        /** Additional information setup **/
+        view.addSubview(additionalInformationLabel)
+        view.addSubview(colorNameLabel)
+        view.addSubview(placeOfBirthLabel)
+        view.addSubview(residentialAddressLabel)
     }
     
     private func configureConstraints() {
@@ -144,11 +148,36 @@ class ReviewVC: UIViewController {
             genderLabel.topAnchor.constraint(equalTo: dateOfBirthLabel.bottomAnchor, constant: 12)
         ]
         
+        let additionalInformationLabelConstraints = [
+            additionalInformationLabel.leadingAnchor.constraint(equalTo: personalDetailsLabel.leadingAnchor),
+            additionalInformationLabel.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 45),
+        ]
+        
+        let colorNameLabelConstraints = [
+            colorNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            colorNameLabel.topAnchor.constraint(equalTo: additionalInformationLabel.bottomAnchor, constant: 20),
+        ]
+        
+        let placeOfBirthLabelConstraints = [
+            placeOfBirthLabel.leadingAnchor.constraint(equalTo: colorNameLabel.leadingAnchor),
+            placeOfBirthLabel.topAnchor.constraint(equalTo: colorNameLabel.bottomAnchor, constant: 12),
+        ]
+        
+        let residentialAddressLabelConstraints = [
+            residentialAddressLabel.leadingAnchor.constraint(equalTo: colorNameLabel.leadingAnchor),
+            residentialAddressLabel.topAnchor.constraint(equalTo: placeOfBirthLabel.bottomAnchor, constant: 12),
+        ]
+        /** Personal details **/
         NSLayoutConstraint.activate(personalDetailsLabelConstraints)
         NSLayoutConstraint.activate(avatarImageViewConstraints)
         NSLayoutConstraint.activate(displayFullNameLabelConstraints)
         NSLayoutConstraint.activate(emailLabelConstraints)
         NSLayoutConstraint.activate(dateOfBirthLabelConstraints)
         NSLayoutConstraint.activate(genderLabelConstraints)
+        /** Additional information **/
+        NSLayoutConstraint.activate(additionalInformationLabelConstraints)
+        NSLayoutConstraint.activate(colorNameLabelConstraints)
+        NSLayoutConstraint.activate(placeOfBirthLabelConstraints)
+        NSLayoutConstraint.activate(residentialAddressLabelConstraints)
     }
 }
