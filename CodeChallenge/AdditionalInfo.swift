@@ -8,6 +8,12 @@
 import UIKit
 
 class AdditionalInfo: UIViewController {
+    
+    
+    private let chooseGender: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl()
+        return segmentedControl
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
