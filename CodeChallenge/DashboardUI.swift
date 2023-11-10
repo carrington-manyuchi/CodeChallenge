@@ -9,6 +9,13 @@ import UIKit
 
 class DashboardUI: UIView {
     
+    private let cardView: UIView = {
+        let myView = UIView()
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        myView.backgroundColor = .red
+        return myView
+    }()
+    
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -75,7 +82,9 @@ private extension DashboardUI {
         self.addSubview(displayNameLabel)
         self.addSubview(emailLabel)
         self.addSubview(nextImageView)
-        self.backgroundColor = UIColorFromRGB(rgbValue: 0xD2E0FB)        
+        self.layer.borderColor = UIColor.black.cgColor
+        self.backgroundColor = UIColorFromRGB(rgbValue: 0xD2E0FB)
+        self.layer.borderWidth = 2
     }
 
     private func configureConstraints() {
@@ -109,10 +118,6 @@ private extension DashboardUI {
         NSLayoutConstraint.activate(nextImageViewConstraints)
     }
     
-    @objc func btnTapped(sender: UIButton) {
-        print("Button Tapped")
-    }
-    
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -123,3 +128,6 @@ private extension DashboardUI {
     }
     
 }
+
+
+
