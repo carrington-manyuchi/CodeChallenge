@@ -11,10 +11,18 @@ class EmployeesTableViewCell: UITableViewCell {
     
     static let identifier  = "EmployeesTableViewCell"
     
+    private let cardView: UIView = {
+        let myView = UIView()
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        myView.layer.borderColor = UIColor.systemGray5.cgColor
+        myView.layer.borderWidth = 1
+        return myView
+    }()
+    
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "person")
@@ -27,7 +35,7 @@ class EmployeesTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Carrington Manyuchi"
-        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
@@ -42,10 +50,10 @@ class EmployeesTableViewCell: UITableViewCell {
     // first lets initialize our views
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        contentView.addSubview(avatarImageView)
-        contentView.addSubview(displayNameLabel)
-        contentView.addSubview(displayEmailLabel)
+        contentView.addSubview(cardView)
+        cardView.addSubview(avatarImageView)
+        cardView.addSubview(displayNameLabel)
+        cardView.addSubview(displayEmailLabel)
         configureConstraints()
     }
     
@@ -57,8 +65,8 @@ class EmployeesTableViewCell: UITableViewCell {
         let avatarImageViewConstraints = [
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 50),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 50),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 40),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 40),
             avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ]
         
