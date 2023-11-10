@@ -55,4 +55,12 @@ extension EmployeesVC: UITableViewDelegate, UITableViewDataSource {
        //   cell.textLabel?.text = "Carrington CHibaba"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = EmployeeDetailsVC()
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        
+            
+    }
 }
