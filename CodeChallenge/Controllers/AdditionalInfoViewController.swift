@@ -4,13 +4,26 @@
 //
 //  Created by DA MAC M1 157 on 2023/11/10.
 //
- 
+/**
+ I have to create a button and add it as a circle. Infront I will add a label.
+ If  color changes the button color will change as well as the color label infront
+ SHould works fine
+ */
+
 import UIKit
 
 class AdditionalInfoViewController: UIViewController {
     
+    private let chooseGenderLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Choose Gender"
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        return label
+    }()
     
-    private let chooseGenderLabel: UISegmentedControl = {
+    private let chooseGenderSegment: UISegmentedControl = {
         let genderArray = ["Female", "Male", "Other"]
         let segmentedControl = UISegmentedControl(items: genderArray)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +83,7 @@ class AdditionalInfoViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        view.addSubview(chooseGenderLabel)
+        view.addSubview(chooseGenderSegment)
         view.addSubview(selectColorButton)
         view.addSubview(colorNameLabel)
         view.addSubview(addressTextField)
@@ -78,15 +91,15 @@ class AdditionalInfoViewController: UIViewController {
 
     private func configureConstraints() {
         
-        let chooseGenderConstraints = [
-            chooseGenderLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
-            chooseGenderLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            chooseGenderLabel.heightAnchor.constraint(equalToConstant: 50),
-            chooseGenderLabel.widthAnchor.constraint(equalToConstant: 250)
+        let chooseGenderSegmentConstraints = [
+            chooseGenderSegment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            chooseGenderSegment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            chooseGenderSegment.heightAnchor.constraint(equalToConstant: 50),
+            chooseGenderSegment.widthAnchor.constraint(equalToConstant: 250)
         ]
         
         let selectColorButtonConstraints = [
-            selectColorButton.topAnchor.constraint(equalTo: chooseGenderLabel.bottomAnchor, constant: 40),
+            selectColorButton.topAnchor.constraint(equalTo: chooseGenderSegment.bottomAnchor, constant: 40),
             selectColorButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             selectColorButton.heightAnchor.constraint(equalToConstant: 40),
             selectColorButton.widthAnchor.constraint(equalToConstant: 40)
@@ -105,7 +118,7 @@ class AdditionalInfoViewController: UIViewController {
             addressTextField.heightAnchor.constraint(equalToConstant: 40)
         ]
         
-        NSLayoutConstraint.activate(chooseGenderConstraints)
+        NSLayoutConstraint.activate(chooseGenderSegmentConstraints)
         NSLayoutConstraint.activate(selectColorButtonConstraints)
         NSLayoutConstraint.activate(colorNameLabelConstraints)
         NSLayoutConstraint.activate(addressTextFieldConstraints)
