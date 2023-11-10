@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: BaseViewController {
     
     private let loginTitleLabel: UILabel = {
         let label = UILabel()
@@ -57,11 +57,13 @@ class LoginVC: UIViewController {
         view.addSubview(loginButton)
         configureConstraints()
         
+        navigationController?.navigationBar.isHidden = true
+        
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
     @objc private func didTapLoginButton() {
-        let vc = UINavigationController(rootViewController: EmployeesVC())
+        let vc = EmployeesVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     

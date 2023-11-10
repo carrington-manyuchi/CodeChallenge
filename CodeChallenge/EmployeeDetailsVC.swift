@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeeDetailsVC: UIViewController {
+class EmployeeDetailsVC: BaseViewController {
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()

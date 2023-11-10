@@ -5,7 +5,7 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+class OnboardingVC: BaseViewController {
     
     private let welcomeLabel: UILabel = {
         let label = UILabel()

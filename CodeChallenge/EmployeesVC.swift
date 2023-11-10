@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeesVC: UIViewController {
+class EmployeesVC: BaseViewController {
     
     private let employeesTableView: UITableView = {
         let tableView = UITableView()
@@ -19,8 +19,10 @@ class EmployeesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
         title = "Employees List"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+       // self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
         configureConstraints()
     }

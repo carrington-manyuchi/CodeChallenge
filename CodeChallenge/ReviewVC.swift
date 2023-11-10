@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewVC: UIViewController {
+class ReviewVC: BaseViewController {
     
     private let personalDetailsLabel: UILabel = {
         let label = UILabel()
@@ -93,6 +93,18 @@ class ReviewVC: UIViewController {
         return label
     }()
     
+    private let submitButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Submit", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        button.backgroundColor = .customBlueColor
+        button.tintColor = .white
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -113,6 +125,7 @@ class ReviewVC: UIViewController {
         view.addSubview(colorNameLabel)
         view.addSubview(placeOfBirthLabel)
         view.addSubview(residentialAddressLabel)
+        view.addSubview(submitButton)
     }
     
     private func configureConstraints() {
@@ -167,6 +180,13 @@ class ReviewVC: UIViewController {
             residentialAddressLabel.leadingAnchor.constraint(equalTo: colorNameLabel.leadingAnchor),
             residentialAddressLabel.topAnchor.constraint(equalTo: placeOfBirthLabel.bottomAnchor, constant: 12),
         ]
+        
+        let submitButtonConstraints = [
+            submitButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            submitButton.widthAnchor.constraint(equalToConstant: 250),
+            submitButton.heightAnchor.constraint(equalToConstant: 60),
+        ]
         /** Personal details **/
         NSLayoutConstraint.activate(personalDetailsLabelConstraints)
         NSLayoutConstraint.activate(avatarImageViewConstraints)
@@ -179,5 +199,7 @@ class ReviewVC: UIViewController {
         NSLayoutConstraint.activate(colorNameLabelConstraints)
         NSLayoutConstraint.activate(placeOfBirthLabelConstraints)
         NSLayoutConstraint.activate(residentialAddressLabelConstraints)
+        
+        NSLayoutConstraint.activate(submitButtonConstraints)
     }
 }
