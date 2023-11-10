@@ -8,7 +8,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBarBackButton()
@@ -39,7 +39,7 @@ class BaseViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.shadowImage = UIImage()
-
+        
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -73,6 +73,15 @@ class BaseViewController: UIViewController {
     }
     
     @objc func didTapNextButton() {
+        
+    }
+    
+    
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
         
     }
 }

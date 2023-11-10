@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5F845767-650D-425F-A91F-5E9938D46FAC"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61A7395D-F7DF-47D6-BF04-D33EAB4EBB76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CodeChallenge/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "didTapLoginButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD2933BD-A826-41C9-9827-97AD031FBB74"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CodeChallenge/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "didTapLoginButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B42C20B4-3DEF-4075-9577-0F950F43BAD0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CodeChallenge/ViewModel/UserViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "login(username:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B42C20B4-3DEF-4075-9577-0F950F43BAD0 - 53561dc3e1dc2a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in CodeChallenge.UserViewModel.login(username: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "576">
+               </Location>
+               <Location
+                  uuid = "B42C20B4-3DEF-4075-9577-0F950F43BAD0 - 53561dc3e1dc2a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in CodeChallenge.UserViewModel.login(username: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "700">
+               </Location>
+               <Location
+                  uuid = "B42C20B4-3DEF-4075-9577-0F950F43BAD0 - 53561dc3e1dc2a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in CodeChallenge.UserViewModel.login(username: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/ViewModel/UserViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

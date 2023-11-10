@@ -48,7 +48,9 @@ class LoginVC: BaseViewController {
         button.layer.cornerRadius = 20
         return button
     }()
-
+    
+    private lazy var viewModel = LoginViewModel(delegate: self, service: ServiceCalls())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -57,16 +59,13 @@ class LoginVC: BaseViewController {
         view.addSubview(passwordtextField)
         view.addSubview(loginButton)
         configureConstraints()
-        
         navigationController?.navigationBar.isHidden = true
-        
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
     @objc private func didTapLoginButton() {
-
+        viewModel.login(username: emailTextField.text ?? "", password: passwordtextField.text ?? "")
     }
-    
     
     private func configureConstraints() {
         
@@ -96,13 +95,32 @@ class LoginVC: BaseViewController {
             loginButton.widthAnchor.constraint(equalToConstant: 200)
         ]
         
-        
         NSLayoutConstraint.activate(loginTitleLabelConstraints)
         NSLayoutConstraint.activate(emailTextFieldConstraints)
         NSLayoutConstraint.activate(passwordtextFieldConstraints)
         NSLayoutConstraint.activate(loginButtonConstraints)
     }
+}
 
-
-
+extension LoginVC: LoginDelegate {
+    
+    func navigateToHomeScreenOnLoginSuccess() {
+        
+        let vc  = EmployeesVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showErrorsOnLoginFailure() {
+        print("showErrorsOnLoginFailure")
+    }
+    
+    func showLoadingIndicator() {
+        self.showLoading()
+    }
+    
+    func hideLoadingIndicator() {
+        self.hideLoading()
+    }
+    
+    
 }

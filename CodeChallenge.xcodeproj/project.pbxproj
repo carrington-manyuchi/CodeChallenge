@@ -26,7 +26,10 @@
 		8C049BD52AFE67C600012905 /* Employees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BD42AFE67C600012905 /* Employees.swift */; };
 		8C049BD72AFE682600012905 /* UserColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BD62AFE682600012905 /* UserColor.swift */; };
 		8C049BD92AFE6A7500012905 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BD82AFE6A7500012905 /* UserRequest.swift */; };
-		8C049BDC2AFE70F700012905 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDB2AFE70F700012905 /* UserViewModel.swift */; };
+		8C049BDC2AFE70F700012905 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDB2AFE70F700012905 /* LoginViewModel.swift */; };
+		8C049BDE2AFE7C5300012905 /* UserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDD2AFE7C5300012905 /* UserDelegate.swift */; };
+		8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */; };
+		8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */; };
 		8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */; };
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5DD2AFD41080003DD45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DC2AFD41080003DD45 /* ViewController.swift */; };
@@ -54,7 +57,10 @@
 		8C049BD42AFE67C600012905 /* Employees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employees.swift; sourceTree = "<group>"; };
 		8C049BD62AFE682600012905 /* UserColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColor.swift; sourceTree = "<group>"; };
 		8C049BD82AFE6A7500012905 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
-		8C049BDB2AFE70F700012905 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		8C049BDB2AFE70F700012905 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8C049BDD2AFE7C5300012905 /* UserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDelegate.swift; sourceTree = "<group>"; };
+		8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
+		8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColorsViewModel.swift; sourceTree = "<group>"; };
 		8C7DF5D52AFD41080003DD45 /* CodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +123,10 @@
 		8C049BDA2AFE6C8800012905 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8C049BDB2AFE70F700012905 /* UserViewModel.swift */,
+				8C049BDB2AFE70F700012905 /* LoginViewModel.swift */,
+				8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */,
+				8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */,
+				8C049BDD2AFE7C5300012905 /* UserDelegate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -236,7 +245,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C049BBD2AFDECB200012905 /* EmployeeDetailsVC.swift in Sources */,
-				8C049BDC2AFE70F700012905 /* UserViewModel.swift in Sources */,
+				8C049BDC2AFE70F700012905 /* LoginViewModel.swift in Sources */,
+				8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */,
+				8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */,
 				8C049BB92AFD674700012905 /* EmployeesVC.swift in Sources */,
 				8C049BC92AFE59A000012905 /* URLSession+Extension.swift in Sources */,
 				8C7DF5DD2AFD41080003DD45 /* ViewController.swift in Sources */,
@@ -245,6 +256,7 @@
 				8C049BC52AFE4DD700012905 /* BaseViewController.swift in Sources */,
 				8C049BD02AFE5E8C00012905 /* ServiceCalls.swift in Sources */,
 				8C049BB32AFD46D700012905 /* OnboardingVC.swift in Sources */,
+				8C049BDE2AFE7C5300012905 /* UserDelegate.swift in Sources */,
 				8C049BD52AFE67C600012905 /* Employees.swift in Sources */,
 				8C049BCB2AFE59CB00012905 /* APIError.swift in Sources */,
 				8C049BB12AFD467900012905 /* LoginVC.swift in Sources */,
