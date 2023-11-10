@@ -35,7 +35,7 @@ class DashboardViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Carrington Manyuchi"
-        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
     
@@ -65,6 +65,9 @@ class DashboardViewController: BaseViewController {
         date.date = Date(timeIntervalSince1970: 10)
         date.minimumDate = Date(timeIntervalSince1970: 20)
         date.maximumDate = Date(timeIntervalSinceNow: 0)
+        date.tintColor = .white
+        date.backgroundColor = .lightGray
+        date.layer.cornerRadius = 10
         return date
     }()
     
@@ -72,7 +75,7 @@ class DashboardViewController: BaseViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.keyboardType = .default
-        textField.borderStyle = .line
+        textField.borderStyle = .roundedRect
         textField.placeholder = "Place of birth"
         return  textField
     }()
@@ -81,6 +84,8 @@ class DashboardViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         configureConstraints()
+        configureNextButton()
+        
     }
     
     @objc private func nextButtonTapped() {
@@ -91,6 +96,7 @@ class DashboardViewController: BaseViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(dashboardTitleLabel)
+        view.addSubview(nextImageView)
         view.addSubview(avatarImageView)
         view.addSubview(displayNameLabel)
         view.addSubview(emailLabel)
@@ -113,28 +119,32 @@ class DashboardViewController: BaseViewController {
             avatarImageView.heightAnchor.constraint(equalToConstant: 40)
         ]
         
+        let nextImageViewConstraints = [
+            nextImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            nextImageView.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
+        ]
+        
         let displayNameLabelConstraints = [
-            //displayNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
-            displayNameLabel.trailingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
-            displayNameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor)
+            displayNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 25),
         ]
         
         let emailLabelConstraints = [
-            emailLabel.topAnchor.constraint(equalTo: displayNameLabel.bottomAnchor, constant: 2),
-            emailLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
-            emailLabel.trailingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5)
+            emailLabel.topAnchor.constraint(equalTo: displayNameLabel.bottomAnchor, constant: 1),
+            emailLabel.leadingAnchor.constraint(equalTo: displayNameLabel.leadingAnchor),
         ]
         
         let dateOfBirthConstraints = [
             dateOfBirth.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 50),
-            dateOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
+            dateOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
+            dateOfBirth.heightAnchor.constraint(equalToConstant: 40),
+            dateOfBirth.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
         ]
         
         let placeOfBirthConstraints = [
             placeOfBirth.topAnchor.constraint(equalTo: dateOfBirth.bottomAnchor, constant: 30),
-            placeOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
-            placeOfBirth.widthAnchor.constraint(equalToConstant: 200),
+            placeOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
+            placeOfBirth.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             placeOfBirth.heightAnchor.constraint(equalToConstant: 40),
         ]
         
@@ -144,6 +154,7 @@ class DashboardViewController: BaseViewController {
         NSLayoutConstraint.activate(emailLabelConstraints)
         NSLayoutConstraint.activate(dateOfBirthConstraints)
         NSLayoutConstraint.activate(placeOfBirthConstraints)
+        NSLayoutConstraint.activate(nextImageViewConstraints)
     }
 
 
