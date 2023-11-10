@@ -25,6 +25,7 @@ class EmployeesVC: BaseViewController {
         navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
         configureConstraints()
+        configureNextButton()
     }
     
     private func setupUI() {

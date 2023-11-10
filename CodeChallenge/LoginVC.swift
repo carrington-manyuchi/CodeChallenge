@@ -24,6 +24,7 @@ class LoginVC: BaseViewController {
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
         textField.placeholder = "Enter email"
+        textField.autocapitalizationType = .none
         return  textField
     }()
     
@@ -63,8 +64,21 @@ class LoginVC: BaseViewController {
     }
     
     @objc private func didTapLoginButton() {
-        let vc = EmployeesVC()
-        navigationController?.pushViewController(vc, animated: true)
+       
+        
+        let service = ServiceCalls()
+        service.login(username: emailTextField.text ?? "", password: passwordtextField.text ?? "") { [weak self] result in
+            switch result {
+            case .success(let login):
+                DispatchQueue.main.async {
+                    let vc = EmployeesVC()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            case .failure(let error):
+                print("Failed")
+            }
+        }
     }
     
     

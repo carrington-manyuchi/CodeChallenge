@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
         configureNavigationBarBackButton()
         configureNavigationaBar()
         
+        
     }
     
     func configureNavigationBarBackButton() {
@@ -53,7 +54,25 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func configureNextButton() {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Next", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
+        button.backgroundColor = .clear
+        
+        button.tintColor = .white
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 4
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 2
+        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        button.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        
+    }
     
-    
-    
+    @objc func didTapNextButton() {
+        
+    }
 }

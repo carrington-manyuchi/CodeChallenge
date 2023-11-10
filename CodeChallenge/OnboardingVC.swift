@@ -39,7 +39,7 @@ class OnboardingVC: BaseViewController {
         nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
     }
     
-    @objc private func didTapNextButton() {
+    @objc internal override func didTapNextButton() {
         let vc = UINavigationController(rootViewController: LoginVC())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
