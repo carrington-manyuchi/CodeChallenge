@@ -40,6 +40,7 @@ class EmployeeDetailsVC: UIViewController {
     
     private let dateOfBirth: UIDatePicker = {
         let date = UIDatePicker()
+        date.translatesAutoresizingMaskIntoConstraints = false
         date.datePickerMode = .date
         date.locale = Locale.current
         date.timeZone = .current
@@ -53,9 +54,10 @@ class EmployeeDetailsVC: UIViewController {
     private let placeOfBirth: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.keyboardType = .default
         textField.borderStyle = .roundedRect
-        textField.placeholder = "place of birth"
+        textField.placeholder = "Place of birth"
         return  textField
     }()
 
@@ -78,13 +80,41 @@ class EmployeeDetailsVC: UIViewController {
         
         let avatarImageViewConstraints = [
             avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100)
         ]
         
-        displayNameLabelConstraints = [
+        let displayNameLabelConstraints = [
+            //displayNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
+            displayNameLabel.trailingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
+            displayNameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor)
         ]
+        
+        let emailLabelConstraints = [
+            emailLabel.topAnchor.constraint(equalTo: displayNameLabel.bottomAnchor, constant: 2),
+            emailLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
+            emailLabel.trailingAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5)
+        ]
+        
+        let dateOfBirthConstraints = [
+            dateOfBirth.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 50),
+            dateOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
+        ]
+        
+        
+        let placeOfBirthConstraints = [
+            placeOfBirth.topAnchor.constraint(equalTo: dateOfBirth.bottomAnchor, constant: 30),
+            placeOfBirth.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 30),
+            placeOfBirth.widthAnchor.constraint(equalToConstant: 200)
+        ]
+        
+        NSLayoutConstraint.activate(avatarImageViewConstraints)
+        NSLayoutConstraint.activate(displayNameLabelConstraints)
+        NSLayoutConstraint.activate(emailLabelConstraints)
+        NSLayoutConstraint.activate(dateOfBirthConstraints)
+        NSLayoutConstraint.activate(placeOfBirthConstraints)
     }
 
 
