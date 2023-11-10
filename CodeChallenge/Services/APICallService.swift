@@ -13,61 +13,48 @@ protocol APICallService {
     /// - Parameters:
     ///   - url: The endpoint to get data from
     ///   - completion: Response from the service call in the form of a `Result<T, ServiceError>` with a ServiceError obect
-    func fetchResources<T: Decodable>(url: URL, completion: @escaping (Result<T, APIError>) -> Void)
-    func postResources<T: Decodable>(url: URL, body: Data?, completion: @escaping (Result<T, APIError>) -> Void)
+    func fetchResources<T: Decodable>(url: URL) -> Result<T, APIError>
+    func postResources<T: Decodable>(url: URL, body: Data?) -> Result<T, APIError>
     
 }
 
 extension APICallService {
-    func fetchResources<T: Decodable>(url: URL, completion: @escaping (Result<T, APIError>) -> Void) {
-        
+    func fetchResources<T: Decodable>(url: URL) -> Result<T, APIError> {
         let internetReachability = Reachability()
-        
+
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            completion(.failure(.invalidURL))
-            return
+            return .failure(.invalidURL)
         }
-        
+
         guard let url = urlComponents.url else {
-            completion(.failure(.invalidURL))
-            return
+            return .failure(.invalidURL)
         }
-        
-        
+
         if !internetReachability.isInternetAvailable() {
-            completion(.failure(.networkError))
+            return .failure(.networkError)
         }
-        
-        URLSession.shared.dataTask(with: url) { (result) in
-            switch result {
-            case .success(let (response, data)):
-                
-                guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
-                    200..<299 ~= statusCode else {
-                        completion(.failure(.requestFailed))
-                        return
-                }
-                
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let value = try decoder.decode(T.self, from: data)
-                    completion(.success(value))
-                } catch {
-                    completion(.failure(.decodeError))
-                }
-                
-            case .failure(_):
-                completion(.failure(.requestFailed))
+
+        do {
+            let (data, response) = try URLSession.shared.synchronousDataTask(with: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200..<299).contains(httpResponse.statusCode) else {
+                return .failure(.requestFailed)
             }
-        }.resume()
-        
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let value = try decoder.decode(T.self, from: data)
+
+            return .success(value)
+        } catch {
+            return .failure(.requestFailed)
+        }
     }
-    
-    func postResources<T: Decodable>(url: URL, body: Data?, completion: @escaping (Result<T, APIError>) -> Void) {
+
+    func postResources<T: Decodable>(url: URL, body: Data?) -> Result<T, APIError> {
         guard Reachability().isInternetAvailable() else {
-            completion(.failure(.networkError))
-            return
+            return .failure(.networkError)
         }
 
         var request = URLRequest(url: url)
@@ -75,35 +62,77 @@ extension APICallService {
         request.httpBody = body
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                completion(.failure(.requestFailed))
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
+        do {
+            let (data, response) = try URLSession.shared.synchronousDataTask(with: request)
 
             guard let httpResponse = response as? HTTPURLResponse,
-                (200..<300).contains(httpResponse.statusCode) else {
-                    completion(.failure(.requestFailed))
-                    return
+                  (200..<299).contains(httpResponse.statusCode) else {
+                return .failure(.requestFailed)
             }
 
-            guard let data = data else {
-                completion(.failure(.requestFailed))
-                return
-            }
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let value = try decoder.decode(T.self, from: data)
 
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let value = try decoder.decode(T.self, from: data)
-                completion(.success(value))
-            } catch {
-                completion(.failure(.decodeError))
-            }
+            return .success(value)
+        } catch {
+            return .failure(.requestFailed)
+        }
+    }
+}
+
+extension URLSession {
+    func synchronousDataTask(with url: URL) throws -> (Data, URLResponse) {
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+
+        let semaphore = DispatchSemaphore(value: 0)
+
+        dataTask(with: url) {
+            data = $0
+            response = $1
+            error = $2
+            semaphore.signal()
+        }.resume()
+
+        semaphore.wait()
+
+        if let error = error {
+            throw error
         }
 
-        task.resume()
+        guard let responseData = data, let response = response else {
+            throw NSError(domain: "Invalid response or data", code: 0, userInfo: nil)
+        }
+
+        return (responseData, response)
     }
-    
+
+    func synchronousDataTask(with request: URLRequest) throws -> (Data, URLResponse) {
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+
+        let semaphore = DispatchSemaphore(value: 0)
+
+        dataTask(with: request) {
+            data = $0
+            response = $1
+            error = $2
+            semaphore.signal()
+        }.resume()
+
+        semaphore.wait()
+
+        if let error = error {
+            throw error
+        }
+
+        guard let responseData = data, let response = response else {
+            throw NSError(domain: "Invalid response or data", code: 0, userInfo: nil)
+        }
+
+        return (responseData, response)
+    }
 }

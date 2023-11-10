@@ -8,9 +8,9 @@
 import Foundation
 
 protocol ServiceCallsProtocol {
-    func login(username: String, password: String, completion result: @escaping (Result<Login, APIError>) -> Void)
-    func fetchEmployees(completion result: @escaping (Result<[Employee], APIError>) -> Void)
-    func fetchColors(completion result: @escaping (Result<[UserColor], APIError>) -> Void)
+    func login(username: String, password: String) -> Result<Login, APIError>
+    func fetchEmployees() ->  Result<Employees, APIError>
+    func fetchColors() -> Result<UserColor, APIError>
    // func updateUser(user: User, completion result: @escaping (Result<[Post], APIError>) -> Void)
     
     //Need to create UserColor, User and Employee models
@@ -19,22 +19,22 @@ protocol ServiceCallsProtocol {
 
 class ServiceCalls: ServiceCallsProtocol, APICallService {
     
-    func login(username: String, password: String, completion result: @escaping (Result<Login, APIError>) -> Void){
+    func login(username: String, password: String) -> Result<Login, APIError> {
         let url = URL(string: "https://reqres.in/api/login")!
         let userRequest = UserRequest(username: username, password: password)
         let data = try? JSONEncoder().encode(userRequest)
-        return postResources(url: url, body: data, completion: result)
+        return postResources(url: url, body: data)
         
     }
     
-    func fetchEmployees(completion result: @escaping (Result<[Employee], APIError>) -> Void) {
+    func fetchEmployees() ->  Result<Employees, APIError> {
         let url = URL(string: "https://reqres.in/api/users?page=1&per_page=12")!
-        return fetchResources(url: url, completion: result)
+        return fetchResources(url: url)
     }
     
-    func fetchColors(completion result: @escaping (Result<[UserColor], APIError>) -> Void) {
+    func fetchColors() -> Result<UserColor, APIError>  {
         let url = URL(string: "https://reqres.in/api/unknown?per_page=12")!
-        return fetchResources(url: url, completion: result)
+        return fetchResources(url: url)
     }
     
 //    func updateUser(user: User, completion result: @escaping (Result<[Post], APIError>) -> Void) {

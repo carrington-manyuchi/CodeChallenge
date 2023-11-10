@@ -64,21 +64,7 @@ class LoginVC: BaseViewController {
     }
     
     @objc private func didTapLoginButton() {
-       
-        
-        let service = ServiceCalls()
-        service.login(username: emailTextField.text ?? "", password: passwordtextField.text ?? "") { [weak self] result in
-            switch result {
-            case .success(let login):
-                DispatchQueue.main.async {
-                    let vc = EmployeesVC()
-                    self?.navigationController?.pushViewController(vc, animated: true)
-                }
-                
-            case .failure(let error):
-                print("Failed")
-            }
-        }
+
     }
     
     
