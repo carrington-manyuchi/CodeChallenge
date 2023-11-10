@@ -1,5 +1,5 @@
 //
-//  EmployeeDetailsVC.swift
+//  DashboardViewController.swift
 //  CodeChallenge
 //
 //  Created by DA MAC M1 157 on 2023/11/10.
@@ -99,7 +99,7 @@ class DashboardViewController: BaseViewController {
     }
     
     @objc private func nextButtonTapped() {
-        let vc = AdditionalInfo()
+        let vc = AdditionalInfoViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

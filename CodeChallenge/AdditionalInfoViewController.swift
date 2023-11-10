@@ -1,5 +1,5 @@
 //
-//  AdditionalInfo.swift
+//  AdditionalInfoViewController.swift
 //  CodeChallenge
 //
 //  Created by DA MAC M1 157 on 2023/11/10.
@@ -7,7 +7,7 @@
  
 import UIKit
 
-class AdditionalInfo: UIViewController {
+class AdditionalInfoViewController: UIViewController {
     
     
     private let chooseGenderLabel: UISegmentedControl = {
