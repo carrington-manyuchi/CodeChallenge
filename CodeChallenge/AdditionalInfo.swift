@@ -64,7 +64,7 @@ class AdditionalInfo: UIViewController {
     }
     
     @objc private func nextButtonTapped() {
-        let vc = AdditionalInfo()
+        let vc = ReviewVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     

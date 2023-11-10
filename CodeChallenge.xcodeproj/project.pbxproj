@@ -15,6 +15,7 @@
 		8C049BBD2AFDECB200012905 /* EmployeeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BBC2AFDECB200012905 /* EmployeeDetailsVC.swift */; };
 		8C049BBF2AFDEEED00012905 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C049BBE2AFDEEED00012905 /* Storyboard.storyboard */; };
 		8C049BC12AFE05A300012905 /* AdditionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BC02AFE05A300012905 /* AdditionalInfo.swift */; };
+		8C049BC32AFE249100012905 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BC22AFE249100012905 /* ReviewVC.swift */; };
 		8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */; };
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5DD2AFD41080003DD45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DC2AFD41080003DD45 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		8C049BBC2AFDECB200012905 /* EmployeeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsVC.swift; sourceTree = "<group>"; };
 		8C049BBE2AFDEEED00012905 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8C049BC02AFE05A300012905 /* AdditionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfo.swift; sourceTree = "<group>"; };
+		8C049BC22AFE249100012905 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		8C7DF5D52AFD41080003DD45 /* CodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				8C049BBE2AFDEEED00012905 /* Storyboard.storyboard */,
 				8C049BB82AFD674700012905 /* EmployeesVC.swift */,
 				8C049BC02AFE05A300012905 /* AdditionalInfo.swift */,
+				8C049BC22AFE249100012905 /* ReviewVC.swift */,
 				8C049BBC2AFDECB200012905 /* EmployeeDetailsVC.swift */,
 				8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */,
 				8C049BB22AFD46D700012905 /* OnboardingVC.swift */,
@@ -178,6 +181,7 @@
 				8C049BBD2AFDECB200012905 /* EmployeeDetailsVC.swift in Sources */,
 				8C049BB92AFD674700012905 /* EmployeesVC.swift in Sources */,
 				8C7DF5DD2AFD41080003DD45 /* ViewController.swift in Sources */,
+				8C049BC32AFE249100012905 /* ReviewVC.swift in Sources */,
 				8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */,
 				8C049BB32AFD46D700012905 /* OnboardingVC.swift in Sources */,
 				8C049BB12AFD467900012905 /* LoginVC.swift in Sources */,
