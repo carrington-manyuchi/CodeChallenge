@@ -63,10 +63,7 @@ class SuccessViewController: UIViewController {
     
     @objc private func didTapDoneButton() {
         dismiss(animated: true)
-        let vc = OnboardingViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .flipHorizontal
-        present(vc, animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func setupViews() {

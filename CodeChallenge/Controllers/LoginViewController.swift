@@ -108,6 +108,7 @@ class LoginViewController: BaseViewController {
 extension LoginViewController: LoginDelegate {
     
     func navigateToHomeScreenOnLoginSuccess() {
+        
         let vc  = DashboardViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

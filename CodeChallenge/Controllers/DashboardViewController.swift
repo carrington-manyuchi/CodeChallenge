@@ -89,9 +89,8 @@ class DashboardViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.isHidden = false
-//        navigationController?.navigationBar.backgroundColor = .blue
-
+        navigationController?.navigationBar.isHidden = false
+        self.navigationItem.hidesBackButton = true
         title = "Employee"
         setupUI()
         configureConstraints()

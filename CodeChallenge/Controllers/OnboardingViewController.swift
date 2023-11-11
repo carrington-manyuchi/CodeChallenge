@@ -41,7 +41,7 @@ class OnboardingViewController: BaseViewController {
     }
     
     @objc internal override func didTapNextButton() {
-        let vc = LoginViewController()
+        let vc = UINavigationController(rootViewController: LoginViewController())
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true)
