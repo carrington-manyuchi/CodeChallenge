@@ -13,7 +13,6 @@ class EmployeesViewController: BaseViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(EmployeesTableViewCell.self, forCellReuseIdentifier: EmployeesTableViewCell.identifier)
-        //tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -21,8 +20,7 @@ class EmployeesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        title = "Employees List"
-       // self.navigationController?.navigationBar.prefersLargeTitles = true
+        title = "List of Employees"
         navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
         configureConstraints()

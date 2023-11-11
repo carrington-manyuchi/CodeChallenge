@@ -56,9 +56,22 @@ class SuccessViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         configureConstraints()
+        
+        successDoneButton.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
+    }
+    
+    
+    @objc private func didTapDoneButton() {
+        dismiss(animated: true)
+        let vc = OnboardingViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .flipHorizontal
+        present(vc, animated: true)
     }
     
     private func setupViews() {
+        navigationController?.navigationBar.isHidden = true
+
         view.backgroundColor = .systemBackground
         view.addSubview(successImageView)
         view.addSubview(successLabel)

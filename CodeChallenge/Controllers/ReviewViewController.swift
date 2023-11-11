@@ -122,8 +122,17 @@ class ReviewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.backgroundColor = .blue
+        title = "Review"
+        submitButton.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         setupUI()
         configureConstraints()
+    }
+    
+    @objc private func didTapSubmitButton() {
+        let vc = SuccessViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setupUI() {

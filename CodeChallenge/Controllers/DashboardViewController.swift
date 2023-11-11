@@ -9,7 +9,6 @@ import UIKit
 
 class DashboardViewController: BaseViewController {
     
-    
     private let dashboardTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -19,11 +18,9 @@ class DashboardViewController: BaseViewController {
         return label
     }()
     
-    
     private let cardView: UIView = {
         let myView = UIView()
         myView.translatesAutoresizingMaskIntoConstraints = false
-       // myView.backgroundColor = .red
         myView.layer.borderColor = UIColor.systemGray5.cgColor
         myView.layer.borderWidth = 1
         return myView
@@ -92,13 +89,16 @@ class DashboardViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        navigationController?.navigationBar.isHidden = false
+//        navigationController?.navigationBar.backgroundColor = .blue
+
+        title = "Employee"
         setupUI()
         configureConstraints()
         configureNextButton()
-        
     }
     
-    @objc private func nextButtonTapped() {
+    @objc internal override func didTapNextButton() {
         let vc = AdditionalInfoViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -108,6 +108,7 @@ class DashboardViewController: BaseViewController {
         view.addSubview(dashboardTitleLabel)
         view.addSubview(cardView)
         cardView.addSubview(nextImageView)
+        
         cardView.addSubview(avatarImageView)
         cardView.addSubview(displayNameLabel)
         cardView.addSubview(emailLabel)

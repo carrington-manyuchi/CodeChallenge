@@ -36,11 +36,12 @@ class OnboardingViewController: BaseViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(nextButton)
         configureConstraints()
+        navigationController?.navigationBar.isHidden = true
         nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
     }
     
     @objc internal override func didTapNextButton() {
-        let vc = UINavigationController(rootViewController: LoginViewController())
+        let vc = LoginViewController()
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true)

@@ -12,7 +12,7 @@
 
 import UIKit
 
-class AdditionalInfoViewController: UIViewController {
+class AdditionalInfoViewController: BaseViewController {
     
     private let chooseGenderLabel: UILabel = {
         let label = UILabel()
@@ -94,13 +94,13 @@ class AdditionalInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextButtonTapped))
-
+        title = "Additional Info"
         setupUI()
         configureConstraints()
+        configureNextButton()
     }
     
-    @objc private func nextButtonTapped() {
+    @objc internal override func didTapNextButton() {
         let vc = ReviewViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

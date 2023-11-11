@@ -13,8 +13,6 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBarBackButton()
         configureNavigationaBar()
-        
-        
     }
     
     func configureNavigationBarBackButton() {
@@ -53,6 +51,7 @@ class BaseViewController: UIViewController {
             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         }
     }
+    
     
     func configureNextButton() {
         let button = UIButton(type: .system)
