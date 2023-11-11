@@ -95,6 +95,15 @@ class DashboardViewController: BaseViewController {
         setupUI()
         configureConstraints()
         configureNextButton()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cardViewTapped))
+        cardView.addGestureRecognizer(tapGesture)
+        cardView.isUserInteractionEnabled = true
+    }
+    
+    @objc private func cardViewTapped() {
+        let vc = EmployeesViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc internal override func didTapNextButton() {

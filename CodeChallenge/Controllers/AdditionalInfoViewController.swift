@@ -98,6 +98,15 @@ class AdditionalInfoViewController: BaseViewController {
         setupUI()
         configureConstraints()
         configureNextButton()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectColorCardViewTapped))
+        selectColorCardView.addGestureRecognizer(tapGesture)
+        selectColorCardView.isUserInteractionEnabled = true
+    }
+    
+    @objc private func selectColorCardViewTapped() {
+        let vc = ColorsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc internal override func didTapNextButton() {
