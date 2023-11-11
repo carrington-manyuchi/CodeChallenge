@@ -29,6 +29,7 @@
 		8C049BDE2AFE7C5300012905 /* UserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDD2AFE7C5300012905 /* UserDelegate.swift */; };
 		8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */; };
 		8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */; };
+		8C049BE92AFF587900012905 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE82AFF587900012905 /* SuccessViewController.swift */; };
 		8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */; };
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5E22AFD410A0003DD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		8C049BDD2AFE7C5300012905 /* UserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDelegate.swift; sourceTree = "<group>"; };
 		8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 		8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColorsViewModel.swift; sourceTree = "<group>"; };
+		8C049BE82AFF587900012905 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		8C7DF5D52AFD41080003DD45 /* CodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				8C049BC02AFE05A300012905 /* AdditionalInfoViewController.swift */,
 				8C049BB02AFD467900012905 /* LoginViewController.swift */,
 				8C049BC22AFE249100012905 /* ReviewViewController.swift */,
+				8C049BE82AFF587900012905 /* SuccessViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				8C049BD72AFE682600012905 /* UserColor.swift in Sources */,
 				8C049BBB2AFD67EA00012905 /* EmployeesTableViewCell.swift in Sources */,
 				8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */,
+				8C049BE92AFF587900012905 /* SuccessViewController.swift in Sources */,
 				8C049BC72AFE593F00012905 /* APICallService.swift in Sources */,
 				8C049BC12AFE05A300012905 /* AdditionalInfoViewController.swift in Sources */,
 				8C049BD32AFE66F300012905 /* Login.swift in Sources */,
