@@ -21,13 +21,13 @@ class EmployeesTableViewCell: UITableViewCell {
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "person")
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .systemRed
+        imageView.backgroundColor = .red
         return imageView
     }()
 
@@ -50,10 +50,7 @@ class EmployeesTableViewCell: UITableViewCell {
     // first lets initialize our views
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(cardView)
-        cardView.addSubview(avatarImageView)
-        cardView.addSubview(displayNameLabel)
-        cardView.addSubview(displayEmailLabel)
+        setupUI()
         configureConstraints()
     }
     
@@ -61,26 +58,41 @@ class EmployeesTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupUI() {
+        contentView.addSubview(cardView)
+        cardView.addSubview(avatarImageView)
+        cardView.addSubview(displayNameLabel)
+        cardView.addSubview(displayEmailLabel)
+    }
+    
     private func configureConstraints() {
+        
+        let cardViewConstraints = [
+            cardView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ]
+                    
         let avatarImageViewConstraints = [
-            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            avatarImageView.leadingAnchor.constraint(equalTo: cardView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            avatarImageView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
             avatarImageView.heightAnchor.constraint(equalToConstant: 40),
             avatarImageView.widthAnchor.constraint(equalToConstant: 40),
-            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ]
         
         let displayNameLabelConstraints = [
             displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20),
-            displayNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor)
+            displayNameLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20)
         ]
         
         let displayEmailLabelConstraints = [
-            displayEmailLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20),
+            displayEmailLabel.leadingAnchor.constraint(equalTo: displayNameLabel.leadingAnchor),
             displayEmailLabel.topAnchor.constraint(equalTo: displayNameLabel.bottomAnchor, constant: 2),
-            //displayEmailLabel.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor)
+            displayEmailLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20)
         ]
         
+        NSLayoutConstraint.activate(cardViewConstraints)
         NSLayoutConstraint.activate(avatarImageViewConstraints)
         NSLayoutConstraint.activate(displayNameLabelConstraints)
         NSLayoutConstraint.activate(displayEmailLabelConstraints)
