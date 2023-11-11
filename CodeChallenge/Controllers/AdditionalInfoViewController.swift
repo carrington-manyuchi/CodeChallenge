@@ -31,11 +31,11 @@ class AdditionalInfoViewController: UIViewController {
         return segmentedControl
     }()
     
-    private let preferredColorLabel: UILabel = {
+    private let selectEmployeePrefferedColorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Select Employee preferred colour"
-        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .label
         label.numberOfLines = 1
         return label
@@ -53,7 +53,7 @@ class AdditionalInfoViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Color Name"
-        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .label
         label.numberOfLines = 1
         return label
@@ -83,7 +83,9 @@ class AdditionalInfoViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
+        view.addSubview(chooseGenderLabel)
         view.addSubview(chooseGenderSegment)
+        view.addSubview(selectEmployeePrefferedColorLabel)
         view.addSubview(selectColorButton)
         view.addSubview(colorNameLabel)
         view.addSubview(addressTextField)
@@ -91,15 +93,25 @@ class AdditionalInfoViewController: UIViewController {
 
     private func configureConstraints() {
         
+        let chooseGenderLabelConstraints = [
+            chooseGenderLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            chooseGenderLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ]
+        
         let chooseGenderSegmentConstraints = [
-            chooseGenderSegment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            chooseGenderSegment.topAnchor.constraint(equalTo: chooseGenderLabel.bottomAnchor, constant: 10),
             chooseGenderSegment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            chooseGenderSegment.heightAnchor.constraint(equalToConstant: 50),
+            chooseGenderSegment.heightAnchor.constraint(equalToConstant: 40),
             chooseGenderSegment.widthAnchor.constraint(equalToConstant: 250)
         ]
         
+        let selectEmployeePrefferedColorLabelConstraints = [
+            selectEmployeePrefferedColorLabel.topAnchor.constraint(equalTo: chooseGenderSegment.bottomAnchor, constant: 80),
+            selectEmployeePrefferedColorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+        ]
+        
         let selectColorButtonConstraints = [
-            selectColorButton.topAnchor.constraint(equalTo: chooseGenderSegment.bottomAnchor, constant: 40),
+            selectColorButton.topAnchor.constraint(equalTo: selectEmployeePrefferedColorLabel.bottomAnchor, constant: 40),
             selectColorButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             selectColorButton.heightAnchor.constraint(equalToConstant: 40),
             selectColorButton.widthAnchor.constraint(equalToConstant: 40)
@@ -118,7 +130,9 @@ class AdditionalInfoViewController: UIViewController {
             addressTextField.heightAnchor.constraint(equalToConstant: 40)
         ]
         
+        NSLayoutConstraint.activate(chooseGenderLabelConstraints)
         NSLayoutConstraint.activate(chooseGenderSegmentConstraints)
+        NSLayoutConstraint.activate(selectEmployeePrefferedColorLabelConstraints)
         NSLayoutConstraint.activate(selectColorButtonConstraints)
         NSLayoutConstraint.activate(colorNameLabelConstraints)
         NSLayoutConstraint.activate(addressTextFieldConstraints)
