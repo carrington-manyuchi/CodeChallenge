@@ -19,7 +19,7 @@ class AdditionalInfoViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Choose Gender"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
@@ -35,17 +35,32 @@ class AdditionalInfoViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Select Employee preferred colour"
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .label
         label.numberOfLines = 1
         return label
     }()
     
+    private let selectColorCardView: UIView = {
+        let myView = UIView()
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        myView.layer.borderColor = UIColor.systemGray5.cgColor
+        myView.layer.borderWidth = 1
+        //core graphics
+        myView.layer.shadowColor = UIColor.black.cgColor
+        myView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        myView.layer.shadowRadius = 4
+        myView.layer.shadowOpacity = 0.3
+        return myView
+    }()
+    
     private let selectColorButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "dot.circle"), for: .normal)
-        button.setImage(UIImage(systemName: "dot.circle.fill"), for: .selected)
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 15
+        button.layer.borderColor = UIColor.systemGray5.cgColor
+        button.layer.borderWidth = 1
         return button
     }()
     
@@ -59,11 +74,20 @@ class AdditionalInfoViewController: UIViewController {
         return label
     }()
     
+    private let nextImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "chevron.forward")
+        imageView.tintColor = .gray
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private let addressTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.keyboardType = .default
-        textField.borderStyle = .line
+        textField.borderStyle = .roundedRect
         textField.placeholder = " Residential Address "
         return  textField
     }()
@@ -86,8 +110,10 @@ class AdditionalInfoViewController: UIViewController {
         view.addSubview(chooseGenderLabel)
         view.addSubview(chooseGenderSegment)
         view.addSubview(selectEmployeePrefferedColorLabel)
-        view.addSubview(selectColorButton)
-        view.addSubview(colorNameLabel)
+        view.addSubview(selectColorCardView)
+        selectColorCardView.addSubview(selectColorButton)
+        selectColorCardView.addSubview(colorNameLabel)
+        selectColorCardView.addSubview(nextImageView)
         view.addSubview(addressTextField)
     }
 
@@ -110,11 +136,23 @@ class AdditionalInfoViewController: UIViewController {
             selectEmployeePrefferedColorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
         ]
         
+        let selectColorCardViewConstraints = [
+            selectColorCardView.topAnchor.constraint(equalTo: selectEmployeePrefferedColorLabel.bottomAnchor, constant: 5),
+            selectColorCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            selectColorCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ]
+        
+        let nextImageViewConstraints = [
+            nextImageView.trailingAnchor.constraint(equalTo: selectColorCardView.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            nextImageView.centerYAnchor.constraint(equalTo: selectColorCardView.centerYAnchor),
+        ]
+        
         let selectColorButtonConstraints = [
-            selectColorButton.topAnchor.constraint(equalTo: selectEmployeePrefferedColorLabel.bottomAnchor, constant: 40),
-            selectColorButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            selectColorButton.heightAnchor.constraint(equalToConstant: 40),
-            selectColorButton.widthAnchor.constraint(equalToConstant: 40)
+            selectColorButton.topAnchor.constraint(equalTo: selectColorCardView.topAnchor, constant: 20),
+            selectColorButton.leadingAnchor.constraint(equalTo: selectColorCardView.leadingAnchor, constant: 30),
+            selectColorButton.bottomAnchor.constraint(equalTo: selectColorCardView.bottomAnchor, constant: -20),
+            selectColorButton.heightAnchor.constraint(equalToConstant: 30),
+            selectColorButton.widthAnchor.constraint(equalToConstant: 30)
         ]
         
         let colorNameLabelConstraints = [
@@ -124,7 +162,7 @@ class AdditionalInfoViewController: UIViewController {
         ]
         
         let addressTextFieldConstraints = [
-            addressTextField.topAnchor.constraint(equalTo: colorNameLabel.bottomAnchor, constant: 50),
+            addressTextField.topAnchor.constraint(equalTo: selectColorCardView.bottomAnchor, constant: 50),
             addressTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             addressTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             addressTextField.heightAnchor.constraint(equalToConstant: 40)
@@ -133,8 +171,10 @@ class AdditionalInfoViewController: UIViewController {
         NSLayoutConstraint.activate(chooseGenderLabelConstraints)
         NSLayoutConstraint.activate(chooseGenderSegmentConstraints)
         NSLayoutConstraint.activate(selectEmployeePrefferedColorLabelConstraints)
+        NSLayoutConstraint.activate(selectColorCardViewConstraints)
         NSLayoutConstraint.activate(selectColorButtonConstraints)
         NSLayoutConstraint.activate(colorNameLabelConstraints)
+        NSLayoutConstraint.activate(nextImageViewConstraints)
         NSLayoutConstraint.activate(addressTextFieldConstraints)
     }
 }
