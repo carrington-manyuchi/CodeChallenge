@@ -34,6 +34,8 @@
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5E22AFD410A0003DD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */; };
 		8C7DF5E52AFD410A0003DD45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7DF5E32AFD410A0003DD45 /* LaunchScreen.storyboard */; };
+		8CD3385B2AFF68A800D660EC /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD3385A2AFF68A800D660EC /* ColorsViewController.swift */; };
+		8CD3385D2AFF68C700D660EC /* ColorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD3385C2AFF68C700D660EC /* ColorsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C7DF5E42AFD410A0003DD45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C7DF5E62AFD410A0003DD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CD3385A2AFF68A800D660EC /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
+		8CD3385C2AFF68C700D660EC /* ColorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */,
+				8CD3385C2AFF68C700D660EC /* ColorsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				8C049BB02AFD467900012905 /* LoginViewController.swift */,
 				8C049BC22AFE249100012905 /* ReviewViewController.swift */,
 				8C049BE82AFF587900012905 /* SuccessViewController.swift */,
+				8CD3385A2AFF68A800D660EC /* ColorsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			files = (
 				8C049BBD2AFDECB200012905 /* DashboardViewController.swift in Sources */,
 				8C049BDC2AFE70F700012905 /* LoginViewModel.swift in Sources */,
+				8CD3385D2AFF68C700D660EC /* ColorsTableViewCell.swift in Sources */,
 				8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */,
 				8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */,
 				8C049BB92AFD674700012905 /* EmployeesViewController.swift in Sources */,
@@ -278,6 +285,7 @@
 				8C049BDE2AFE7C5300012905 /* UserDelegate.swift in Sources */,
 				8C049BD52AFE67C600012905 /* Employees.swift in Sources */,
 				8C049BCB2AFE59CB00012905 /* APIError.swift in Sources */,
+				8CD3385B2AFF68A800D660EC /* ColorsViewController.swift in Sources */,
 				8C049BB12AFD467900012905 /* LoginViewController.swift in Sources */,
 				8C049BD72AFE682600012905 /* UserColor.swift in Sources */,
 				8C049BBB2AFD67EA00012905 /* EmployeesTableViewCell.swift in Sources */,
