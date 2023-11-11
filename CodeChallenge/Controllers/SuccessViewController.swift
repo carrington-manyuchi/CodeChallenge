@@ -40,7 +40,7 @@ class SuccessViewController: UIViewController {
     private let successDoneButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Submit", for: .normal)
+        button.setTitle("Done", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 21, weight: .bold)
         button.backgroundColor = .blue
         button.tintColor = .white
