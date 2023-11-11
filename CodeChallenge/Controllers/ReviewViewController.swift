@@ -13,14 +13,26 @@ class ReviewViewController: BaseViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Personal Details"
-        label.font = .systemFont(ofSize: 30, weight: .heavy)
+        label.font = .systemFont(ofSize: 17, weight: .semibold)
         return label
+    }()
+    
+    private let reviewCardView: UIView = {
+        let myView = UIView()
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        myView.layer.borderColor = UIColor.systemGray5.cgColor
+        myView.layer.borderWidth = 1
+        myView.layer.shadowColor = UIColor.black.cgColor
+        myView.layer.shadowOffset = CGSize(width: 2, height: 1)
+        myView.layer.shadowOpacity = 0.5
+        myView.layer.shadowRadius = 4
+        return myView
     }()
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "person")
@@ -130,15 +142,15 @@ class ReviewViewController: BaseViewController {
     
     private func configureConstraints() {
         let personalDetailsLabelConstraints = [
-            personalDetailsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            personalDetailsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            personalDetailsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            personalDetailsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
         ]
         
         let avatarImageViewConstraints = [
             avatarImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             avatarImageView.topAnchor.constraint(equalTo: personalDetailsLabel.bottomAnchor, constant: 30),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 40),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 40),
         ]
         
         let displayFullNameLabelConstraints = [
