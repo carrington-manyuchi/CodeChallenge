@@ -4,6 +4,11 @@
 //
 //  Created by DA MAC M1 157 on 2023/11/10.
 //
+/**API CALL SERVICE
+ ** 1. Identify the URL of the desired API endpoint
+ **2. Retrieve JSON data from the API using URLSESSION
+ **3. Decode the data into a Swift type using CODABLE and JSONDecoder
+ **/
 
 import Foundation
 
@@ -95,6 +100,7 @@ extension URLSession {
         var response: URLResponse?
         var error: Error?
 
+        /**Controls access to a shared resource by multiple threads. Limits the # of threads that can use the resource at the same time**/
         let semaphore = DispatchSemaphore(value: 0)
 
         dataTask(with: url) {
