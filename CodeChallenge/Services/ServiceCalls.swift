@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/**Declares  methods that represent different API calls**/
 protocol ServiceCallsProtocol {
     func login(username: String, password: String) -> Result<Login, APIError>
     func fetchEmployees() ->  Result<Employees, APIError>
@@ -29,11 +29,14 @@ class ServiceCalls: ServiceCallsProtocol, APICallService {
         
     }
     
+    /** Construct URLs and call the fetchResources method from the APICallService protocol to perform GET requests. **/
     func fetchEmployees() ->  Result<Employees, APIError> {
         let url = URL(string: "https://reqres.in/api/users?page=1&per_page=12")!
         return fetchResources(url: url)
     }
     
+    
+    /**Fetches user colors and returns a Result type containing either a UserColor object or an APIError.**/
     func fetchColors() -> Result<UserColor, APIError>  {
         let url = URL(string: "https://reqres.in/api/unknown?per_page=12")!
         return fetchResources(url: url)
