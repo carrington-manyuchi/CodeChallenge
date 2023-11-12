@@ -3,7 +3,8 @@
 //  CodeChallenge
 //
 //  Created by DA MAC M1 157 on 2023/11/11.
-//
+/***TableViewCell: A specialized type of view that manages the content of a single table row
+ **Defines a blueprint of how a single cell should look like*/
 
 import UIKit
 

@@ -55,11 +55,11 @@ extension APICallService {
             }
 
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            //decoder.keyDecodingStrategy = .convertFromSnakeCase
             let value = try decoder.decode(T.self, from: data)
 
             return .success(value)
-        } catch {
+        } catch(let error) {
             return .failure(.requestFailed)
         }
     }
@@ -150,3 +150,5 @@ extension URLSession {
         return (responseData, response)
     }
 }
+
+

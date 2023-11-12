@@ -6,13 +6,13 @@
 import Foundation
 
 protocol EmployeesDelegate: BaseDelegate {
-    func reloadTableViewWithData()
-    func showErrorsOnLoadingFailure()
+    func dataReceived()
 }
 
 class EmployeesViewModel {
     
     var service: ServiceCallsProtocol
+    var selectedEmployee: Employee?
     
     private(set) var employees: [Employee]?
     private weak var delegate: EmployeesDelegate?
@@ -23,25 +23,40 @@ class EmployeesViewModel {
     }
     
     func fetchEmployees() {
-        DispatchQueue.global(qos: .background).async {  [weak self] in            
+        
+        self.delegate?.showLoadingIndicator()
+        DispatchQueue.global(qos: .background).async {  [weak self] in
+            
             let result = self?.service.fetchEmployees()
-            switch result {
-            case .success(let data):
-                self?.employees = data.data
-                DispatchQueue.main.async {
-                    self?.delegate?.reloadTableViewWithData()
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    
+                    
+                    
+                    
+                    
+                    
+                    self?.employees = data.data
+                    if self?.selectedEmployee == nil {
+                        self?.selectedEmployee = data.data?.first
+                    }
+                    self?.delegate?.hideLoadingIndicator()
+                    self?.delegate?.dataReceived()
+                    
+                case .failure(let error):
+                    
+                        self?.delegate?.hideLoadingIndicator()
+                        self?.delegate?.showError(error: error)
+                        print(error)
+                
+                    
+                case .none:
+                    break
                 }
-            case .failure(let error):
-               // self?.service = error as! any ServiceCallsProtocol
-                DispatchQueue.main.async {
-                    self?.delegate?.showErrorsOnLoadingFailure()
-                    print(error)
-                }
-                 
-            case .none:
-                break
             }
         }
+        
     }
-    
 }

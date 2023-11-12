@@ -11,4 +11,5 @@ import Foundation
 protocol BaseDelegate: AnyObject {
     func showLoadingIndicator()
     func hideLoadingIndicator()
+    func showError(error: Error)
 }

@@ -41,7 +41,7 @@ class DashboardViewController: BaseViewController {
     private let displayNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Carrington Manyuchi"
+        //label.text = "Carrington Manyuchi"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -49,7 +49,7 @@ class DashboardViewController: BaseViewController {
     private let emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "carrington@gmail.com"
+        //label.text = "carrington@gmail.com"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -87,22 +87,32 @@ class DashboardViewController: BaseViewController {
         return  textField
     }()
 
+    private var viewModel: EmployeesViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         self.navigationItem.hidesBackButton = true
         title = "Employee"
+        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls())
+        viewModel.fetchEmployees()
         setupUI()
         configureConstraints()
         configureNextButton()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cardViewTapped))
         cardView.addGestureRecognizer(tapGesture)
-        cardView.isUserInteractionEnabled = true
+        cardView.isUserInteractionEnabled = true        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureView()
     }
     
     @objc private func cardViewTapped() {
-        let vc = EmployeesViewController()
+
+        let vc = EmployeesViewController(viewModel: viewModel)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -120,6 +130,11 @@ class DashboardViewController: BaseViewController {
         cardView.addSubview(emailLabel)
         view.addSubview(dateOfBirth)
         view.addSubview(placeOfBirth)
+    }
+    
+    private func configureView() {
+        displayNameLabel.text = viewModel.selectedEmployee?.firstName
+        emailLabel.text = viewModel.selectedEmployee?.email
     }
     
     private func configureConstraints() {
@@ -185,4 +200,26 @@ class DashboardViewController: BaseViewController {
     }
 
 
+}
+extension DashboardViewController: EmployeesDelegate
+{
+  
+    
+    func dataReceived() {
+        configureView()
+        
+        }
+    
+ 
+    
+    func showLoadingIndicator() {
+    
+    }
+    
+    func hideLoadingIndicator() {
+    
+    }
+    func showError(error: Error) {
+        
+    }
 }

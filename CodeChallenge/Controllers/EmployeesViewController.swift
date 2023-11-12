@@ -17,8 +17,18 @@ class EmployeesViewController: BaseViewController {
         return tableView
     }()
     
-    private var viewModel: EmployeesViewModel!
-
+     private var viewModel: EmployeesViewModel
+    
+    
+    init(viewModel: EmployeesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
@@ -26,8 +36,7 @@ class EmployeesViewController: BaseViewController {
         navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
         configureConstraints()        
-        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls())
-        viewModel.fetchEmployees()
+       
                
     }
     
@@ -49,8 +58,8 @@ class EmployeesViewController: BaseViewController {
     }
 }
 
-extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource, EmployeesDelegate {
-    
+extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
+       
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.employees?.count ?? 0
     }
@@ -67,28 +76,13 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource, E
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DashboardViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.viewModel.selectedEmployee = viewModel.employees?[indexPath.row]
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     
-    func reloadTableViewWithData() {
-            DispatchQueue.main.async {
-                self.employeesTableView.reloadData()
-            }
-        }
     
-    func showErrorsOnLoadingFailure() {
-        print("I cant fetch data")
-    }
-    
-    func showLoadingIndicator() {
-    
-    }
-    
-    func hideLoadingIndicator() {
-    
-    }
 }
 
 

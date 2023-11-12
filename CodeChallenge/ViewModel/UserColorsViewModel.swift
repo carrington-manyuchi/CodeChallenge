@@ -9,7 +9,7 @@ import Foundation
 
 protocol UserColorsDelegate: BaseDelegate {
     func navigateToHomeScreenOnLoginSuccess()
-    func showErrorsOnLoginFailure()
+    
 }
 
 
@@ -26,16 +26,20 @@ class UserColorsViewModel {
     }
     
     func fetchColors() {
+        
+        self.delegate?.showLoadingIndicator()
         DispatchQueue.global(qos: .background).async {  [weak self] in
             let result = self?.service.fetchColors()
             switch result {
             case .success(let colors):
                 self?.userColors = colors.data
                 DispatchQueue.main.async {
+                    self?.delegate?.hideLoadingIndicator()
                     
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
+                    self?.delegate?.hideLoadingIndicator()
                     print(error)
                 }
                 

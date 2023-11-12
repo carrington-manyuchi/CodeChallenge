@@ -129,14 +129,15 @@ class LoginViewController: BaseViewController {
 
 extension LoginViewController: LoginDelegate {
     
+    func showError(error: Error) {
+        print("showErrorsOnLoginFailure")
+    }
+    
+    
     func navigateToHomeScreenOnLoginSuccess() {
         
         let vc  = DashboardViewController()
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func showErrorsOnLoginFailure() {
-        print("showErrorsOnLoginFailure")
     }
     
     func showLoadingIndicator() {

@@ -33,7 +33,7 @@ class EmployeesTableViewCell: UITableViewCell {
      let displayNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Carrington Manyuchi"
+        //label.text = "Carrington Manyuchi"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -41,7 +41,7 @@ class EmployeesTableViewCell: UITableViewCell {
     private let displayEmailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "carrington@gmail.com"
+        //label.text = "carrington@gmail.com"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -67,8 +67,8 @@ class EmployeesTableViewCell: UITableViewCell {
     }
     
     func configure(with employee: Employee) {
-        displayNameLabel.text = "\(employee.firstName) \(employee.lastName)"
-        //displayEmailLabel.text = "\(employee.email)"
+        displayNameLabel.text = (employee.firstName ?? "") + " " + (employee.lastName ?? "")
+        displayEmailLabel.text = employee.email
     }
     
     private func configureConstraints() {
