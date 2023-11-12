@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8C049BB12AFD467900012905 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB02AFD467900012905 /* LoginViewController.swift */; };
 		8C049BB32AFD46D700012905 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB22AFD46D700012905 /* OnboardingViewController.swift */; };
-		8C049BB72AFD495900012905 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB62AFD495900012905 /* Extension+UIColor.swift */; };
 		8C049BB92AFD674700012905 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BB82AFD674700012905 /* EmployeesViewController.swift */; };
 		8C049BBB2AFD67EA00012905 /* EmployeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */; };
 		8C049BBD2AFDECB200012905 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BBC2AFDECB200012905 /* DashboardViewController.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		8C049BB02AFD467900012905 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8C049BB22AFD46D700012905 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		8C049BB62AFD495900012905 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		8C049BB82AFD674700012905 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		8C049BBA2AFD67EA00012905 /* EmployeesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewCell.swift; sourceTree = "<group>"; };
 		8C049BBC2AFDECB200012905 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		8C049BB52AFD493600012905 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8C049BB62AFD495900012905 /* Extension+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,7 +292,6 @@
 				8C049BC12AFE05A300012905 /* AdditionalInfoViewController.swift in Sources */,
 				8C049BD32AFE66F300012905 /* Login.swift in Sources */,
 				8C049BCD2AFE5A2E00012905 /* Reachability.swift in Sources */,
-				8C049BB72AFD495900012905 /* Extension+UIColor.swift in Sources */,
 				8C049BD92AFE6A7500012905 /* UserRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 protocol ServiceCallsProtocol {
     func login(username: String, password: String) -> Result<Login, APIError>
     func fetchEmployees() ->  Result<Employees, APIError>
@@ -16,10 +17,13 @@ protocol ServiceCallsProtocol {
 }
 
 class ServiceCalls: ServiceCallsProtocol, APICallService {
-    
+    /**implementations for the methods declared in the ServiceCallsProtocol**/
     func login(username: String, password: String) -> Result<Login, APIError> {
+        /**Constructs a URL**/
         let url = URL(string: "https://reqres.in/api/login")!
+        /**Creates a UserRequest object with the provided username and password **/
         let userRequest = UserRequest(username: username, password: password)
+        /**encodes it to JSON, and then calls the postResources method from the APICallService protocol to perform a POST request.**/
         let data = try? JSONEncoder().encode(userRequest)
         return postResources(url: url, body: data)
         

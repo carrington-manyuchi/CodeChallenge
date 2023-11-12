@@ -8,9 +8,7 @@
 import UIKit
 
 class EmployeesTableViewCell: UITableViewCell {
-    
-    static let identifier  = "EmployeesTableViewCell"
-    
+        
     private let cardView: UIView = {
         let myView = UIView()
         myView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +45,9 @@ class EmployeesTableViewCell: UITableViewCell {
         return label
     }()
     
-    // first lets initialize our views
+    static let identifier  = "EmployeesTableViewCell"
+
+    /** initializing views */
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -65,8 +65,12 @@ class EmployeesTableViewCell: UITableViewCell {
         cardView.addSubview(displayEmailLabel)
     }
     
+    func configure(with employee: Employee) {
+        displayNameLabel.text = "\(employee.firstName) \(employee.lastName)"
+        //displayEmailLabel.text = "\(employee.email)"
+    }
+    
     private func configureConstraints() {
-        
         let cardViewConstraints = [
             cardView.topAnchor.constraint(equalTo: contentView.topAnchor),
             cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

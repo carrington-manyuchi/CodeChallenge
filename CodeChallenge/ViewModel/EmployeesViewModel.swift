@@ -25,9 +25,7 @@ class EmployeesViewModel {
     }
     
     func fetchEmployees() {
-        DispatchQueue.global(qos: .background).async {  [weak self] in
-            
-            
+        DispatchQueue.global(qos: .background).async {  [weak self] in            
             let result = self?.service.fetchEmployees()
             switch result {
             case .success(let data):

@@ -1,7 +1,6 @@
 //
 //  UserViewModel.swift
 //  CodeChallenge
-//
 //  Created by DA MAC M1 157 on 2023/11/10.
 //
 
@@ -41,7 +40,6 @@ class LoginViewModel {
                 DispatchQueue.main.async {
                     self?.delegate?.hideLoadingIndicator()
                     self?.delegate?.showErrorsOnLoginFailure()
-                    
                 }
                 
             case .none:

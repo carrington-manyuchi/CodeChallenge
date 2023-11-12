@@ -8,6 +8,7 @@
 import Foundation
 
 
+// MARK: - UserRequest
 struct UserRequest: Codable {
     let username: String
     let password: String

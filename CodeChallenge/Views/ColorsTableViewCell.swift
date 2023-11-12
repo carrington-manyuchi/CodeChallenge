@@ -8,19 +8,16 @@
 import UIKit
 
 class ColorsTableViewCell: UITableViewCell {
-    
-    public static let identifier = "ColorsTableViewCell"
-        
-    private let cardView: UIView = {
+            
+     let cardView: UIView = {
         let myView = UIView()
         myView.translatesAutoresizingMaskIntoConstraints = false
         myView.layer.borderColor = UIColor.systemGray5.cgColor
         myView.layer.borderWidth = 1
-        
         return myView
     }()
     
-    private let selectColorButton: UIButton = {
+     let selectColorButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
@@ -30,7 +27,7 @@ class ColorsTableViewCell: UITableViewCell {
         return button
     }()
     
-    private let colorNameLabel: UILabel = {
+     let colorNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Color Name"
@@ -40,6 +37,9 @@ class ColorsTableViewCell: UITableViewCell {
         return label
     }()
     
+    public static let identifier = "ColorsTableViewCell"
+
+    /** initializing views */
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -54,7 +54,6 @@ class ColorsTableViewCell: UITableViewCell {
         contentView.addSubview(cardView)
         cardView.addSubview(selectColorButton)
         cardView.addSubview(colorNameLabel)
-        
     }
     
     private func configureConstraints() {

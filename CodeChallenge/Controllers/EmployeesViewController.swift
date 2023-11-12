@@ -25,10 +25,8 @@ class EmployeesViewController: BaseViewController {
         title = "LIST OF EMPLOYEES"
         navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
-        configureConstraints()
-        configureNextButton()
-        
-        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls().fetchEmployees() as! ServiceCallsProtocol)
+        configureConstraints()        
+        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls())
         viewModel.fetchEmployees()
                
     }
@@ -58,14 +56,12 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource, E
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: EmployeesTableViewCell.identifier, for: indexPath) as? EmployeesTableViewCell else {
+        guard let cell = employeesTableView.dequeueReusableCell(withIdentifier: EmployeesTableViewCell.identifier, for: indexPath) as? EmployeesTableViewCell else {
             return UITableViewCell()
         }
         
         if let employee = viewModel.employees?[indexPath.row] {
-            //cell.textLabel?.text =  \(employee.lastName)"
-            cell.displayNameLabel.text = "\(employee.email)"
-            
+            cell.configure(with: employee)
         }
         return cell
     }
@@ -83,7 +79,7 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource, E
         }
     
     func showErrorsOnLoadingFailure() {
-        print("error")
+        print("I cant fetch data")
     }
     
     func showLoadingIndicator() {

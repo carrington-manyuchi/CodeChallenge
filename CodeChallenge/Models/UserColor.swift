@@ -23,7 +23,7 @@ struct UserColor: Codable {
     }
 }
 
-// MARK: - Datum
+// MARK: - SingleColor
 struct SingleColor: Codable {
     let id: Int
     let name: String
