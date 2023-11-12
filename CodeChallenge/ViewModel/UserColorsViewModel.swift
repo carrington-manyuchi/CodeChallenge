@@ -36,7 +36,7 @@ class UserColorsViewModel {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    
+                    print(error)
                 }
                 
             case .none:

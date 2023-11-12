@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    /**Prorammatically made Onboarding VC our starting point**/
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let  windowScene  = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)

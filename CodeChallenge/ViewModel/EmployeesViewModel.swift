@@ -1,9 +1,7 @@
 //
 //  EmployeesViewModel.swift
 //  CodeChallenge
-//
 //  Created by DA MAC M1 157 on 2023/11/10.
-//
 
 import Foundation
 
@@ -37,6 +35,7 @@ class EmployeesViewModel {
                // self?.service = error as! any ServiceCallsProtocol
                 DispatchQueue.main.async {
                     self?.delegate?.showErrorsOnLoadingFailure()
+                    print(error)
                 }
                  
             case .none:
