@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SuccessViewController: UIViewController {
+class SuccessViewController: BaseViewController {
         
     private let successImageView: UIImageView = {
         let imageView = UIImageView()
@@ -56,7 +56,8 @@ class SuccessViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         configureConstraints()
-        
+        navigationController?.navigationBar.isHidden = true
+        successDoneButton.backgroundColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         successDoneButton.addTarget(self, action: #selector(didTapDoneButton), for: .touchUpInside)
     }
     
@@ -67,9 +68,8 @@ class SuccessViewController: UIViewController {
     }
     
     private func setupViews() {
-        navigationController?.navigationBar.isHidden = true
-
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.isHidden = true
         view.addSubview(successImageView)
         view.addSubview(successLabel)
         view.addSubview(successMessageLabel)

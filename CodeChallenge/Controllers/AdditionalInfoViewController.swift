@@ -34,7 +34,7 @@ class AdditionalInfoViewController: BaseViewController {
     private let selectEmployeePrefferedColorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Select Employee preferred colour"
+        label.text = "Select Employee preferred color"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .label
         label.numberOfLines = 1
@@ -115,7 +115,6 @@ class AdditionalInfoViewController: BaseViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
         view.addSubview(chooseGenderLabel)
         view.addSubview(chooseGenderSegment)
         view.addSubview(selectEmployeePrefferedColorLabel)

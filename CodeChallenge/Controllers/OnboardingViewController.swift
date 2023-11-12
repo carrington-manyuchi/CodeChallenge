@@ -23,16 +23,18 @@ class OnboardingViewController: BaseViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Click Next", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
-        button.backgroundColor = .customBlueColor
         button.tintColor = .white
-        button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
+        button.layer.shadowColor = UIColor.systemGray.cgColor
+        button.layer.shadowOffset = CGSize(width: 3, height: 7)
+        button.layer.shadowOpacity = 0.8
+        button.layer.shadowRadius = 2
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        nextButton.backgroundColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         view.addSubview(welcomeLabel)
         view.addSubview(nextButton)
         configureConstraints()
@@ -65,5 +67,6 @@ class OnboardingViewController: BaseViewController {
         NSLayoutConstraint.activate(welcomeLabeConstraints)
         NSLayoutConstraint.activate(nextButtonConstraints)
     }
+   
 
 }

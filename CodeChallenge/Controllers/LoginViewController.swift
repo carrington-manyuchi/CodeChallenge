@@ -42,13 +42,14 @@ class LoginViewController: BaseViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = .red
         button.setTitleColor(.white, for: .normal)
-        button.layer.masksToBounds = true
+        button.layer.shadowRadius = 2
         button.layer.cornerRadius = 10
+        button.layer.shadowColor = UIColor.systemGray.cgColor
         button.layer.shadowOffset = CGSize(width: 3, height: 7)
-        button.layer.shadowRadius = 7
         button.layer.shadowOpacity = 0.9
+        
+       
         return button
     }()
     
@@ -56,7 +57,7 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        loginButton.backgroundColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         view.addSubview(loginTitleLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordtextField)

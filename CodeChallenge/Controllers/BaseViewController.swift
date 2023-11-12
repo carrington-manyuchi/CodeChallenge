@@ -11,6 +11,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         configureNavigationBarBackButton()
         configureNavigationaBar()
     }
@@ -28,7 +29,7 @@ class BaseViewController: UIViewController {
     
     func configureNavigationaBar() {
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.barTintColor = .blue
+        navigationController?.navigationBar.barTintColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white
             
@@ -41,7 +42,7 @@ class BaseViewController: UIViewController {
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .blue
+            appearance.backgroundColor = UIColorFromRGB(rgbValue: 0x39A7FF)
             appearance.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.white
             ]
@@ -82,5 +83,18 @@ class BaseViewController: UIViewController {
     
     func hideLoading() {
         
+    }
+}
+
+
+extension BaseViewController {
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }

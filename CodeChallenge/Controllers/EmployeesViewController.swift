@@ -20,7 +20,7 @@ class EmployeesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        title = "List of Employees"
+        title = "LIST OF EMPLOYEES"
         navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
         configureConstraints()
@@ -31,7 +31,6 @@ class EmployeesViewController: BaseViewController {
         view.addSubview(employeesTableView)
         employeesTableView.delegate = self
         employeesTableView.dataSource = self
-        view.backgroundColor = .systemBackground
     }
     
     private func configureConstraints() {

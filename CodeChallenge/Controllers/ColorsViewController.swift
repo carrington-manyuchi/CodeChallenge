@@ -24,7 +24,8 @@ class ColorsViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        title = "Select Preferred Color"
+        navigationController?.navigationBar.isHidden = false
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)

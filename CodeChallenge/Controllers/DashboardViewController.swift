@@ -112,11 +112,9 @@ class DashboardViewController: BaseViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
         view.addSubview(dashboardTitleLabel)
         view.addSubview(cardView)
         cardView.addSubview(nextImageView)
-        
         cardView.addSubview(avatarImageView)
         cardView.addSubview(displayNameLabel)
         cardView.addSubview(emailLabel)

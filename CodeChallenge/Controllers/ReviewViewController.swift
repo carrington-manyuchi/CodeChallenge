@@ -110,7 +110,7 @@ class ReviewViewController: BaseViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Submit", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 21, weight: .bold)
-        button.backgroundColor = .blue
+        //button.backgroundColor = .blue
         button.tintColor = .white
         button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.systemGray.cgColor
@@ -125,6 +125,7 @@ class ReviewViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.backgroundColor = .blue
         title = "Review"
+        submitButton.backgroundColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         submitButton.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         setupUI()
         configureConstraints()
@@ -136,7 +137,6 @@ class ReviewViewController: BaseViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
         /** Personal details  setup**/
         view.addSubview(personalDetailsLabel)
         view.addSubview(reviewCardView)
