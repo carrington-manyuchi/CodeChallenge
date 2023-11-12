@@ -17,7 +17,7 @@ protocol ServiceCallsProtocol {
 }
 
 class ServiceCalls: ServiceCallsProtocol, APICallService {
-    /**implementations for the methods declared in the ServiceCallsProtocol**/
+    /**implementations for the methods declared in the ServiceCallsProtocol above**/
     func login(username: String, password: String) -> Result<Login, APIError> {
         /**Constructs a URL**/
         let url = URL(string: "https://reqres.in/api/login")!

@@ -3,6 +3,10 @@
 //  CodeChallenge
 //
 //  Created by DA MAC M1 157 on 2023/11/10.
+
+/**by using this URLSession extension, therre is no need to write repetitive error-checking code for each data task.
+ **It promotes code reuse and simplifies the process of handling network responses.
+ */
 //
 
 import Foundation

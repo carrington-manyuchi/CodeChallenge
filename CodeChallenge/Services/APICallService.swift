@@ -7,6 +7,9 @@
 
 import Foundation
 
+
+/**This protocol defines two generic methods for making API calls:
+ **fetchResources for GET requests and postResources for POST requests.*/
 protocol APICallService {
     /// A generic function to use when fetching data from a url
     ///
@@ -18,7 +21,10 @@ protocol APICallService {
     
 }
 
+
+/**Now implementing the two methods declared in the APICallService protocol above.*/
 extension APICallService {
+    
     func fetchResources<T: Decodable>(url: URL) -> Result<T, APIError> {
         let internetReachability = Reachability()
 
@@ -35,6 +41,7 @@ extension APICallService {
         }
 
         do {
+            /**to perform a synchronous network request.**/
             let (data, response) = try URLSession.shared.synchronousDataTask(with: url)
             
             guard let httpResponse = response as? HTTPURLResponse,
@@ -81,6 +88,7 @@ extension APICallService {
     }
 }
 
+/**Each method takes either a URL or a URLRequest depending on whether it is a post or get**/
 extension URLSession {
     func synchronousDataTask(with url: URL) throws -> (Data, URLResponse) {
         var data: Data?
