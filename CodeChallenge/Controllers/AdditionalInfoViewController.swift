@@ -46,11 +46,6 @@ class AdditionalInfoViewController: BaseViewController {
         myView.translatesAutoresizingMaskIntoConstraints = false
         myView.layer.borderColor = UIColor.systemGray5.cgColor
         myView.layer.borderWidth = 1
-        //core graphics
-        myView.layer.shadowColor = UIColor.black.cgColor
-        myView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        myView.layer.shadowRadius = 4
-        myView.layer.shadowOpacity = 0.3
         return myView
     }()
     
