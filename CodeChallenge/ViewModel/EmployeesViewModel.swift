@@ -8,13 +8,13 @@
 import Foundation
 
 protocol EmployeesDelegate: BaseDelegate {
-    func navigateToHomeScreenOnLoginSuccess()
-    func showErrorsOnLoginFailure()
+    func reloadTableViewWithData()
+    func showErrorsOnLoadingFailure()
 }
 
 class EmployeesViewModel {
     
-    let service: ServiceCallsProtocol
+    var service: ServiceCallsProtocol
     
     private(set) var employees: [Employee]?
     private weak var delegate: EmployeesDelegate?
@@ -33,11 +33,12 @@ class EmployeesViewModel {
             case .success(let data):
                 self?.employees = data.data
                 DispatchQueue.main.async {
-                    
+                    self?.delegate?.reloadTableViewWithData()
                 }
             case .failure(let error):
+               // self?.service = error as! any ServiceCallsProtocol
                 DispatchQueue.main.async {
-                    
+                    self?.delegate?.showErrorsOnLoadingFailure()
                 }
                  
             case .none:

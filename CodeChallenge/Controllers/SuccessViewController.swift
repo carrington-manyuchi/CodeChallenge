@@ -20,7 +20,7 @@ class SuccessViewController: BaseViewController {
     private let successLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Success"
+        label.text = "Successful"
         label.font = .systemFont(ofSize: 21, weight: .semibold)
         label.textColor = .label
         return label

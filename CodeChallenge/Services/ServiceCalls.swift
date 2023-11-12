@@ -12,9 +12,7 @@ protocol ServiceCallsProtocol {
     func fetchEmployees() ->  Result<Employees, APIError>
     func fetchColors() -> Result<UserColor, APIError>
    // func updateUser(user: User, completion result: @escaping (Result<[Post], APIError>) -> Void)
-    
-    //Need to create UserColor, User and Employee models
-    
+        
 }
 
 class ServiceCalls: ServiceCallsProtocol, APICallService {

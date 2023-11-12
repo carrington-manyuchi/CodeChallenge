@@ -16,6 +16,8 @@ class EmployeesViewController: BaseViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    private var viewModel: EmployeesViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class EmployeesViewController: BaseViewController {
         setupUI()
         configureConstraints()
         configureNextButton()
+        
+        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls().fetchEmployees() as! ServiceCallsProtocol)
+        viewModel.fetchEmployees()
+               
     }
     
     private func setupUI() {
@@ -45,15 +51,21 @@ class EmployeesViewController: BaseViewController {
     }
 }
 
-extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
+extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource, EmployeesDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.employees?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EmployeesTableViewCell.identifier, for: indexPath) as? EmployeesTableViewCell else {
             return UITableViewCell()
+        }
+        
+        if let employee = viewModel.employees?[indexPath.row] {
+            //cell.textLabel?.text =  \(employee.lastName)"
+            cell.displayNameLabel.text = "\(employee.email)"
+            
         }
         return cell
     }
@@ -62,4 +74,26 @@ extension EmployeesViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = DashboardViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    func reloadTableViewWithData() {
+            DispatchQueue.main.async {
+                self.employeesTableView.reloadData()
+            }
+        }
+    
+    func showErrorsOnLoadingFailure() {
+        print("error")
+    }
+    
+    func showLoadingIndicator() {
+    
+    }
+    
+    func hideLoadingIndicator() {
+    
+    }
 }
+
+
+

@@ -25,6 +25,7 @@ class LoginViewController: BaseViewController {
         textField.placeholder = "Enter email..."
         textField.borderStyle = .roundedRect
         textField.autocapitalizationType = .none
+        textField.clearButtonMode = .always
         return  textField
     }()
     
@@ -68,6 +69,26 @@ class LoginViewController: BaseViewController {
     }
     
     @objc private func didTapLoginButton() {
+        
+        guard let user = emailTextField.text, emailTextField.text?.count != 0 else {
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "Please enter email",
+                                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
+                                                                                          NSAttributedString.Key.font: UIFont(name: "Avenir", size: 18)!]
+                    )
+                    return
+                }
+                
+                
+                guard let password = passwordtextField.text, passwordtextField.text?.count != 0 else {
+                    passwordtextField.attributedPlaceholder = NSAttributedString(string: "Please enter password",
+                                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
+                                                                                          NSAttributedString.Key.font: UIFont(name: "Avenir", size: 18)!]
+                    )
+                    return
+                }
+        print(user)
+        print(password)
+        
         viewModel.login(username: emailTextField.text ?? "", password: passwordtextField.text ?? "")
     }
     

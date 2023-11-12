@@ -31,7 +31,7 @@ class EmployeesTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    private let displayNameLabel: UILabel = {
+     let displayNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Carrington Manyuchi"
