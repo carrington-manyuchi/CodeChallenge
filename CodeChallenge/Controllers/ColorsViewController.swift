@@ -64,6 +64,15 @@ extension ColorsViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        if let color = viewModel.userColors?[indexPath.row] {
+            cell.configure(with: color)
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel.selectedColor = viewModel.userColors?[indexPath.row]
+        self.navigationController?.popViewController(animated: true)
     }
 }

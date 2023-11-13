@@ -59,7 +59,9 @@ class ColorsTableViewCell: UITableViewCell {
     
     func configure(with color: SingleColor) {
         colorNameLabel.text = color.name
-        selectColorButton.backgroundColor = UIColor(cgColor: color as! CGColor)
+        let colorName = color.color
+        selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
+        
     }
     
     private func configureConstraints() {
@@ -86,4 +88,15 @@ class ColorsTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(colorNameLabelConstraints)
     }
     
+}
+
+extension UIColor {
+    convenience init(hex: Int, alpha: CGFloat = 1.0) {
+        self.init(
+            red: CGFloat((hex >> 16) & 0xFF) / 255.0,
+            green: CGFloat((hex >> 8) & 0xFF) / 255.0,
+            blue: CGFloat(hex & 0xFF) / 255.0,
+            alpha: alpha
+        )
+    }
 }
