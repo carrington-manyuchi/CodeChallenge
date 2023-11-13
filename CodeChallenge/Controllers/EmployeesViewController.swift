@@ -31,9 +31,7 @@ class EmployeesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
         title = "LIST OF EMPLOYEES"
-        navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
         configureConstraints()
     }

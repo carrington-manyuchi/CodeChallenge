@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColorsViewController: UIViewController {
+class ColorsViewController: BaseViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -36,7 +36,6 @@ class ColorsViewController: UIViewController {
     
     private func setupUI() {
         title = "Select Preferred Color"
-        navigationController?.navigationBar.isHidden = false
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
