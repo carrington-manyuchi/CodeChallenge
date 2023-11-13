@@ -37,6 +37,7 @@ class AdditionalInfoViewController: BaseViewController {
     private let chooseGenderSegment: UISegmentedControl = {
         let genderArray = ["Female", "Male", "Other"]
         let segmentedControl = UISegmentedControl(items: genderArray)
+        segmentedControl.selectedSegmentIndex = 2 // Default selection
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.tintColor = .label
         return segmentedControl
