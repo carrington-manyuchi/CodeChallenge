@@ -44,6 +44,8 @@ class HomeViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(placeOfBirthTextField)
         configureConstraints()
+        
+        title = "Home VC"
     }
     
     @objc func nextButtonTapped() {

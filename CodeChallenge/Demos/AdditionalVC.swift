@@ -23,7 +23,15 @@ class AdditionalVC: UIViewController {
             return datePicker
         }()
     
-    let nextButton: UIButton = {
+        let segmentedControl: UISegmentedControl = {
+            let items = ["Female", "Male", "Other"]
+            let segmentedControl = UISegmentedControl(items: items)
+            segmentedControl.selectedSegmentIndex = 2
+            segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+            return segmentedControl
+        }()
+    
+        let nextButton: UIButton = {
             let button = UIButton(type: .system)
             button.setTitle("Next", for: .normal)
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -35,18 +43,20 @@ class AdditionalVC: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
+            title = "Additional VC"
             // Add a button to navigate to the next view controller
             
             nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
             view.backgroundColor = .white
             // Add datePicker to the view
             view.addSubview(datePicker)
-                    
-                    // Add nextButton to the view
-                    view.addSubview(nextButton)
+            // Add segmentedControl to the view
+              view.addSubview(segmentedControl)
+            // Add nextButton to the view
+             view.addSubview(nextButton)
             
             // Set up constraints for the nextButton
+            ConfigureConstraints()
         }
         
         @objc func nextButtonTapped() {
@@ -56,6 +66,7 @@ class AdditionalVC: UIViewController {
             reviewVC.name = name
             reviewVC.surname = surname
             reviewVC.selectedDate = datePicker.date
+            reviewVC.selectedSegment = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
             navigationController?.pushViewController(reviewVC, animated: true)
         }
     
@@ -66,14 +77,22 @@ class AdditionalVC: UIViewController {
               datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ]
         
+        let segmentedControlConstraints = [
+            segmentedControl.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 20),
+             segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 40)
+
+        ]
+        
         let nextButtonConstraints = [
-            nextButton.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 20),
+            nextButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20),
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nextButton.heightAnchor.constraint(equalToConstant: 45),
             nextButton.widthAnchor.constraint(equalToConstant: 200),
         ]
         
         NSLayoutConstraint.activate(nextButtonConstraints)
-        NSLayoutConstraint.activate(datePickerConstraints   )
+        NSLayoutConstraint.activate(datePickerConstraints)
+        NSLayoutConstraint.activate(segmentedControlConstraints)
     }
 }

@@ -43,6 +43,8 @@ class EmployViewController: UIViewController {
         view.backgroundColor = .systemGray3
         configureConstraints()
         
+        title = "EmployVC"
+        
         
         nameLabel.text = email
         surnameLabel.text = placeOfBirth

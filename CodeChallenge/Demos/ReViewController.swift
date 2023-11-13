@@ -14,6 +14,7 @@ class ReViewController: UIViewController {
         var name: String?
         var surname: String?
         var selectedDate: Date?
+    var selectedSegment: String?
     
         let reviewLabel: UILabel = {
             let label = UILabel()
@@ -29,7 +30,8 @@ class ReViewController: UIViewController {
                     
              // Add reviewLabel to the view
              view.addSubview(reviewLabel)
-                    
+            configureConstraints()
+            title = "ReVC"
             
             // Display collected data in reviewLabel
              reviewLabel.text = """
@@ -38,13 +40,28 @@ class ReViewController: UIViewController {
                     Name: \(name ?? "")
                     Surname: \(surname ?? "")
                     Selected Date: \(formattedDate(selectedDate) ?? "")
+                    Selected Segment: \(selectedSegment ?? "")
                     """
         }
     
-    func formattedDate(_ date: Date?) -> String? {
+        func formattedDate(_ date: Date?) -> String? {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMMM dd, yyyy"
             return date.map { dateFormatter.string(from: $0) }
         }
     
+    private func configureConstraints() {
+       let  reviewLabelConstraints = [
+            reviewLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+             reviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            reviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+                    
+
+        ]
+        
+        NSLayoutConstraint.activate(reviewLabelConstraints)
     }
+    
+    
+    
+}
