@@ -16,7 +16,7 @@ class EmployeesViewController: BaseViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
-    
+      
      private var viewModel: EmployeesViewModel
     
     
