@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
             let button = UIButton(type: .system)
             button.setTitle("Next", for: .normal)
             button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .blue
             return button
         }()
@@ -36,22 +37,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray3
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         
         view.addSubview(nextButton)
         view.addSubview(emailTextField)
         view.addSubview(placeOfBirthTextField)
         configureConstraints()
-        
-        // Set up constraints for the nextButton
     }
     
     @objc func nextButtonTapped() {
-//        let employVC = EmployViewController()
-//        employVC.email = emailTextField.text
-//        employVC.placeOfBirth = placeOfBirthTextField.text
-//        navigationController?.pushViewController(employVC, animated: true)
+        let employVC = EmployViewController()
+        employVC.email = emailTextField.text
+        employVC.placeOfBirth = placeOfBirthTextField.text
+        navigationController?.pushViewController(employVC, animated: true)
     }
     
     private func configureConstraints() {
