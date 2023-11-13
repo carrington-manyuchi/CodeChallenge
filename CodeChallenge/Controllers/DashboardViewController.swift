@@ -155,6 +155,11 @@ class DashboardViewController: BaseViewController {
     private func configureView() {
         displayNameLabel.text = viewModel.selectedEmployee?.firstName
         emailLabel.text = viewModel.selectedEmployee?.email
+        if let url = URL(string: viewModel.selectedEmployee?
+            .avatar ?? "") {
+            avatarImageView.downloaded(from: url)
+                    //cell.imageView?.downloaded(from: url)
+                }
     }
     
     private func configureConstraints() {

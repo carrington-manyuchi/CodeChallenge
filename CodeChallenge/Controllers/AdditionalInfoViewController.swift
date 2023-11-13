@@ -155,6 +155,11 @@ class AdditionalInfoViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureView()
+    }
+    
     private func configureConstraints() {
         
         let chooseGenderLabelConstraints = [

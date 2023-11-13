@@ -69,6 +69,14 @@ class EmployeesTableViewCell: UITableViewCell {
     func configure(with employee: Employee) {
         displayNameLabel.text = (employee.firstName ?? "") + " " + (employee.lastName ?? "")
         displayEmailLabel.text = employee.email
+        
+        if let url = URL(string: employee.avatar ?? "") {
+            avatarImageView.downloaded(from: url)
+                    //cell.imageView?.downloaded(from: url)
+                }
+        
+//        let data = employee.avatar
+//        avatarImageView.image = UIImage(data: data)
     }
     
     private func configureConstraints() {
@@ -103,4 +111,28 @@ class EmployeesTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(displayEmailLabelConstraints)
     }
     
+}
+
+
+//Download API Image
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+            else { return }
+            
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
 }
