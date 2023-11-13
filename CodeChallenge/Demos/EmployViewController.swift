@@ -42,13 +42,19 @@ class EmployViewController: UIViewController {
         view.addSubview(surnameLabel)
         view.backgroundColor = .systemGray3
         configureConstraints()
+        
+        
+        nameLabel.text = email
+        surnameLabel.text = placeOfBirth
     }
     
     @objc func nextButtonTapped() {
-//        let additionalVC = AdditionalViewController()
-//        additionalVC.name = nameLabel.text
-//        additionalVC.surname = surnameLabel.text
-//        navigationController?.pushViewController(additionalVC, animated: true)
+        let additionalVC = AdditionalVC()
+        additionalVC.email = email
+        additionalVC.placeOfBirth = placeOfBirth
+        additionalVC.name = nameLabel.text
+        additionalVC.surname = surnameLabel.text
+        navigationController?.pushViewController(additionalVC, animated: true)
     }
     
     private func configureConstraints() {
