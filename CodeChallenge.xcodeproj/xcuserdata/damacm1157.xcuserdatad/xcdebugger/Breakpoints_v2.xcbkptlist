@@ -160,6 +160,21 @@
                   endingLineNumber = "41"
                   offsetFromSymbolStart = "180">
                </Location>
+               <Location
+                  uuid = "53FD18D7-F355-48A2-9697-F0241A415CAF - 55982e4fe6fe2eaa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable () -&gt; () in CodeChallenge.EmployeesViewModel.fetchEmployees() -&gt; ()"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/ViewModel/EmployeesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "180">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -225,6 +240,69 @@
             endingLineNumber = "76"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F2D1300-4E04-4CA4-962A-E35136B1EF04"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CodeChallenge/Views/ColorsTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "colorView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "0F2D1300-4E04-4CA4-962A-E35136B1EF04 - e039b3b8f115ddc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UIView in variable initialization expression of CodeChallenge.ColorsTableViewCell.colorView : __C.UIView"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/Views/ColorsTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "0F2D1300-4E04-4CA4-962A-E35136B1EF04 - f7276f28dc1d1213"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CodeChallenge.ColorsTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; CodeChallenge.ColorsTableViewCell"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/Views/ColorsTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "0F2D1300-4E04-4CA4-962A-E35136B1EF04 - efb9245244acb701"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CodeChallenge.ColorsTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CodeChallenge.ColorsTableViewCell&gt;"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/Views/ColorsTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

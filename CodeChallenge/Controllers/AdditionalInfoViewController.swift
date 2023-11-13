@@ -24,6 +24,16 @@ class AdditionalInfoViewController: BaseViewController {
         return label
     }()
     
+    private let colorView: UIView = {
+        let myView = UIView()
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        myView.layer.borderColor = UIColor.systemGray5.cgColor
+        myView.layer.borderWidth = 1
+        myView.layer.cornerRadius = 15
+        myView.backgroundColor = .clear
+        return myView
+    }()
+    
     private let chooseGenderSegment: UISegmentedControl = {
         let genderArray = ["Female", "Male", "Other"]
         let segmentedControl = UISegmentedControl(items: genderArray)
@@ -50,15 +60,15 @@ class AdditionalInfoViewController: BaseViewController {
         return myView
     }()
     
-    private let selectColorButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 15
-        button.layer.borderColor = UIColor.systemGray5.cgColor
-        button.layer.borderWidth = 1
-        return button
-    }()
+//    private let selectColorButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.backgroundColor = .clear
+//        button.layer.cornerRadius = 15
+//        button.layer.borderColor = UIColor.systemGray5.cgColor
+//        button.layer.borderWidth = 1
+//        return button
+//    }()
     
     private let colorNameLabel: UILabel = {
         let label = UILabel()
@@ -137,7 +147,8 @@ class AdditionalInfoViewController: BaseViewController {
         view.addSubview(chooseGenderSegment)
         view.addSubview(selectEmployeePrefferedColorLabel)
         view.addSubview(selectColorCardView)
-        selectColorCardView.addSubview(selectColorButton)
+        selectColorCardView.addSubview(colorView)
+        
         selectColorCardView.addSubview(colorNameLabel)
         selectColorCardView.addSubview(nextImageView)
         view.addSubview(addressTextField)
@@ -149,9 +160,16 @@ class AdditionalInfoViewController: BaseViewController {
 //    }
     
     private func configureView() {
+        
         colorNameLabel.text = viewModel.selectedColor?.name
-        let colorName = viewModel.selectedColor?.color
-        selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
+        
+        let color = viewModel.selectedColor?.color
+        colorView.backgroundColor = UIColor(hex: color ?? "")
+
+        //colorView.backgroundColor = viewModel.selectedColor?.UIColor(hex: color.na)
+      //let color = UIColor(hex: color.color)
+        //let colorName = viewModel.selectedColor?.color
+       // selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
         
     }
     
@@ -190,18 +208,28 @@ class AdditionalInfoViewController: BaseViewController {
             nextImageView.centerYAnchor.constraint(equalTo: selectColorCardView.centerYAnchor),
         ]
         
-        let selectColorButtonConstraints = [
-            selectColorButton.topAnchor.constraint(equalTo: selectColorCardView.topAnchor, constant: 20),
-            selectColorButton.leadingAnchor.constraint(equalTo: selectColorCardView.leadingAnchor, constant: 30),
-            selectColorButton.bottomAnchor.constraint(equalTo: selectColorCardView.bottomAnchor, constant: -20),
-            selectColorButton.heightAnchor.constraint(equalToConstant: 30),
-            selectColorButton.widthAnchor.constraint(equalToConstant: 30)
+//        let selectColorButtonConstraints = [
+//            selectColorButton.topAnchor.constraint(equalTo: selectColorCardView.topAnchor, constant: 20),
+//            selectColorButton.leadingAnchor.constraint(equalTo: selectColorCardView.leadingAnchor, constant: 30),
+//            selectColorButton.bottomAnchor.constraint(equalTo: selectColorCardView.bottomAnchor, constant: -20),
+//            selectColorButton.heightAnchor.constraint(equalToConstant: 30),
+//            selectColorButton.widthAnchor.constraint(equalToConstant: 30)
+//        ]
+        
+        let colorViewConstraints = [
+            colorView.topAnchor.constraint(equalTo: selectColorCardView.topAnchor, constant: 20),
+            colorView.leadingAnchor.constraint(equalTo: selectColorCardView.leadingAnchor, constant: 30),
+            colorView.bottomAnchor.constraint(equalTo: selectColorCardView.bottomAnchor, constant: -20),
+            colorView.heightAnchor.constraint(equalToConstant: 30),
+            colorView.widthAnchor.constraint(equalToConstant: 30)
         ]
+        
+        
         
         let colorNameLabelConstraints = [
             //colorNameLabel.topAnchor.constraint(equalTo: selectColorButton.topAnchor),
-            colorNameLabel.leadingAnchor.constraint(equalTo: selectColorButton.trailingAnchor, constant: 10),
-            colorNameLabel.centerYAnchor.constraint(equalTo: selectColorButton.centerYAnchor),
+            colorNameLabel.leadingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: 10),
+            colorNameLabel.centerYAnchor.constraint(equalTo: colorView.centerYAnchor),
         ]
         
         let addressTextFieldConstraints = [
@@ -215,10 +243,12 @@ class AdditionalInfoViewController: BaseViewController {
         NSLayoutConstraint.activate(chooseGenderSegmentConstraints)
         NSLayoutConstraint.activate(selectEmployeePrefferedColorLabelConstraints)
         NSLayoutConstraint.activate(selectColorCardViewConstraints)
-        NSLayoutConstraint.activate(selectColorButtonConstraints)
+        //NSLayoutConstraint.activate(selectColorButtonConstraints)
         NSLayoutConstraint.activate(colorNameLabelConstraints)
         NSLayoutConstraint.activate(nextImageViewConstraints)
         NSLayoutConstraint.activate(addressTextFieldConstraints)
+        NSLayoutConstraint.activate(colorViewConstraints
+        )
     }
 }
 
