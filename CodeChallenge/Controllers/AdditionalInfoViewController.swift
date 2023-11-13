@@ -14,6 +14,7 @@ import UIKit
 
 class AdditionalInfoViewController: BaseViewController {
     
+    
     private let chooseGenderLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -86,10 +87,29 @@ class AdditionalInfoViewController: BaseViewController {
         textField.placeholder = " Residential Address "
         return  textField
     }()
+    
+    private var viewModel:  UserColorsViewModel
+    
+    var selectedEmployee: Employee?
+
+    
+    init(viewModel: UserColorsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         title = "Additional Info"
+        
+        viewModel = UserColorsViewModel(delegate: self, service: ServiceCalls())
+        viewModel.fetchColors()
+        
         setupUI()
         configureConstraints()
         configureNextButton()
@@ -98,11 +118,14 @@ class AdditionalInfoViewController: BaseViewController {
         selectColorCardView.addGestureRecognizer(tapGesture)
         selectColorCardView.isUserInteractionEnabled = true
     }
+   
+
     
     @objc private func selectColorCardViewTapped() {
-        let vc = ColorsViewController(viewModel: <#UserColorsViewModel#>)
+        let vc = ColorsViewController(viewModel: viewModel)
         navigationController?.pushViewController(vc, animated: true)
     }
+
     
     @objc internal override func didTapNextButton() {
         let vc = ReviewViewController()
@@ -119,6 +142,21 @@ class AdditionalInfoViewController: BaseViewController {
         selectColorCardView.addSubview(nextImageView)
         view.addSubview(addressTextField)
     }
+    
+//    private func  configureView() {
+//        colorNameLabel.text = viewModel.selectedColor?.name
+//       // selectColorButton.backgroundColor = viewModel.selectedColor?.color
+//    }
+    
+    private func configureView() {
+        colorNameLabel.text = viewModel.selectedColor?.name
+        
+        let colorName = viewModel.selectedColor?.color
+        selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
+        
+    }
+    
+
 
     private func configureConstraints() {
         
@@ -179,5 +217,44 @@ class AdditionalInfoViewController: BaseViewController {
         NSLayoutConstraint.activate(colorNameLabelConstraints)
         NSLayoutConstraint.activate(nextImageViewConstraints)
         NSLayoutConstraint.activate(addressTextFieldConstraints)
+    }
+}
+
+
+
+
+extension AdditionalInfoViewController: UserColorsDelegate {
+    func dataReceived() {
+        configureView()
+    }
+    
+    
+    
+    
+    
+    func showLoadingIndicator() {
+        
+    }
+    
+    func hideLoadingIndicator() {
+        
+    }
+    
+    func showError(error: Error) {
+        
+    }
+    
+    
+}
+
+
+extension UIColor {
+    convenience init(hex: Int, alpha: CGFloat = 1.0) {
+        self.init(
+            red: CGFloat((hex >> 16) & 0xFF) / 255.0,
+            green: CGFloat((hex >> 8) & 0xFF) / 255.0,
+            blue: CGFloat(hex & 0xFF) / 255.0,
+            alpha: alpha
+        )
     }
 }

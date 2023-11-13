@@ -57,7 +57,10 @@ class ColorsTableViewCell: UITableViewCell {
         cardView.addSubview(colorNameLabel)
     }
     
-    func configure(wi)
+    func configure(with color: SingleColor) {
+        colorNameLabel.text = color.name
+        selectColorButton.backgroundColor = UIColor(cgColor: color as! CGColor)
+    }
     
     private func configureConstraints() {
         let cardViewConstraints = [

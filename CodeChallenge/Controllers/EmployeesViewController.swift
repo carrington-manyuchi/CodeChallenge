@@ -35,9 +35,7 @@ class EmployeesViewController: BaseViewController {
         title = "LIST OF EMPLOYEES"
         navigationController?.navigationBar.backgroundColor = .blue
         setupUI()
-        configureConstraints()        
-       
-               
+        configureConstraints()
     }
     
     private func setupUI() {

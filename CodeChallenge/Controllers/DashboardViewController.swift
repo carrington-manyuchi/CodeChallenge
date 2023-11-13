@@ -94,8 +94,10 @@ class DashboardViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
         self.navigationItem.hidesBackButton = true
         title = "Employee"
+        
         viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls())
         viewModel.fetchEmployees()
+        
         setupUI()
         configureConstraints()
         configureNextButton()
@@ -116,10 +118,27 @@ class DashboardViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+//    @objc internal override func didTapNextButton() {
+//        let vc = AdditionalInfoViewController(viewModel: self)
+//        navigationController?.pushViewController(AdditionalInfoViewController(), animated: true)
+//    }
+    
+    
     @objc internal override func didTapNextButton() {
-        let vc = AdditionalInfoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        guard let selectedEmployee = viewModel.selectedEmployee else {
+            // Handle the case when no employee is selected
+            return
+        }
+        
+        let additionalInfoViewModel = UserColorsViewModel(delegate: nil, service: ServiceCalls())
+        let additionalInfoViewController = AdditionalInfoViewController(viewModel: additionalInfoViewModel)
+        
+        // Pass the selected employee to the next view controller
+        additionalInfoViewController.selectedEmployee = selectedEmployee
+        
+        navigationController?.pushViewController(additionalInfoViewController, animated: true)
     }
+
     
     private func setupUI() {
         view.addSubview(dashboardTitleLabel)
@@ -130,6 +149,7 @@ class DashboardViewController: BaseViewController {
         cardView.addSubview(emailLabel)
         view.addSubview(dateOfBirth)
         view.addSubview(placeOfBirth)
+        
     }
     
     private func configureView() {
