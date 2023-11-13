@@ -36,7 +36,7 @@ class LoginViewModel {
         /**It performs the actual login operation asynchronously in the background using Grand Central Dispatch (GCD)**/
         DispatchQueue.global(qos: .background).async {  [weak self] in
             
-            let result = self?.service.login(username: "eve.holt@reqres.in", password: "cityslack")
+            let result = self?.service.login(username: username, password: password)
             
             /**switches on the result of the login operation and updates the UI on the main thread based on success or failure**/
             switch result {

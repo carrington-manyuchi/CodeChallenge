@@ -29,6 +29,8 @@
 		8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */; };
 		8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */; };
 		8C049BE92AFF587900012905 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE82AFF587900012905 /* SuccessViewController.swift */; };
+		8C71345B2B02949900E93197 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345A2B02949900E93197 /* HomeViewController.swift */; };
+		8C71345D2B02956500E93197 /* EmployViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345C2B02956500E93197 /* EmployViewController.swift */; };
 		8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */; };
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5E22AFD410A0003DD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 		8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColorsViewModel.swift; sourceTree = "<group>"; };
 		8C049BE82AFF587900012905 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		8C71345A2B02949900E93197 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8C71345C2B02956500E93197 /* EmployViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployViewController.swift; sourceTree = "<group>"; };
 		8C7DF5D52AFD41080003DD45 /* CodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +170,15 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
+		8C7134592B02948700E93197 /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				8C71345A2B02949900E93197 /* HomeViewController.swift */,
+				8C71345C2B02956500E93197 /* EmployViewController.swift */,
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
 		8C7DF5CC2AFD41080003DD45 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +198,7 @@
 		8C7DF5D72AFD41080003DD45 /* CodeChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				8C7134592B02948700E93197 /* Demos */,
 				8C049BE72AFEDD7E00012905 /* Supporting */,
 				8C049BB42AFD492900012905 /* Utils */,
 				8C049BD12AFE66D900012905 /* Models */,
@@ -277,10 +291,12 @@
 				8C049BC32AFE249100012905 /* ReviewViewController.swift in Sources */,
 				8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */,
 				8C049BC52AFE4DD700012905 /* BaseViewController.swift in Sources */,
+				8C71345D2B02956500E93197 /* EmployViewController.swift in Sources */,
 				8C049BD02AFE5E8C00012905 /* ServiceCalls.swift in Sources */,
 				8C049BB32AFD46D700012905 /* OnboardingViewController.swift in Sources */,
 				8C049BDE2AFE7C5300012905 /* UserDelegate.swift in Sources */,
 				8C049BD52AFE67C600012905 /* Employees.swift in Sources */,
+				8C71345B2B02949900E93197 /* HomeViewController.swift in Sources */,
 				8C049BCB2AFE59CB00012905 /* APIError.swift in Sources */,
 				8CD3385B2AFF68A800D660EC /* ColorsViewController.swift in Sources */,
 				8C049BB12AFD467900012905 /* LoginViewController.swift in Sources */,
