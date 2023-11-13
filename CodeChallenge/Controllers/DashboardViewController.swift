@@ -227,10 +227,7 @@ extension DashboardViewController: EmployeesDelegate
     
     func dataReceived() {
         configureView()
-        
-        }
-    
- 
+    }
     
     func showLoadingIndicator() {
     
@@ -239,6 +236,7 @@ extension DashboardViewController: EmployeesDelegate
     func hideLoadingIndicator() {
     
     }
+    
     func showError(error: Error) {
         
     }

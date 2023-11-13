@@ -150,14 +150,11 @@ class AdditionalInfoViewController: BaseViewController {
     
     private func configureView() {
         colorNameLabel.text = viewModel.selectedColor?.name
-        
         let colorName = viewModel.selectedColor?.color
         selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
         
     }
     
-
-
     private func configureConstraints() {
         
         let chooseGenderLabelConstraints = [
@@ -228,10 +225,6 @@ extension AdditionalInfoViewController: UserColorsDelegate {
         configureView()
     }
     
-    
-    
-    
-    
     func showLoadingIndicator() {
         
     }
@@ -243,8 +236,6 @@ extension AdditionalInfoViewController: UserColorsDelegate {
     func showError(error: Error) {
         
     }
-    
-    
 }
 
 

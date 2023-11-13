@@ -70,26 +70,34 @@ class LoginViewController: BaseViewController {
     
     @objc private func didTapLoginButton() {
         
-        guard let user = emailTextField.text, emailTextField.text?.count != 0 else {
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "Please enter email",
-                                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
-                                                                                          NSAttributedString.Key.font: UIFont(name: "Avenir", size: 18)!]
-                    )
-                    return
-                }
-                
-                
-                guard let password = passwordtextField.text, passwordtextField.text?.count != 0 else {
-                    passwordtextField.attributedPlaceholder = NSAttributedString(string: "Please enter password",
-                                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
-                                                                                          NSAttributedString.Key.font: UIFont(name: "Avenir", size: 18)!]
-                    )
-                    return
-                }
-        print(user)
-        print(password)
+        guard let email = emailTextField.text, !email.isEmpty else {
+            showAlert(message: "Please enter email or username.")
+            return
+        }
+        
+        guard let pswd = passwordtextField.text, !pswd.isEmpty else {
+            showAlert(message: "Please enter a valid password")
+            return
+        }
+        
+        if !isValidEmail(email) {
+            showAlert(message: "Please enter valid email address")
+        }
         
         viewModel.login(username: emailTextField.text ?? "", password: passwordtextField.text ?? "")
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+            let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+            return emailPredicate.evaluate(with: email)
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Validation Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
     private func configureConstraints() {

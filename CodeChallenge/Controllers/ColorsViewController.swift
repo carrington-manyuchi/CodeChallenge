@@ -14,6 +14,7 @@ class ColorsViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .singleLine
         tableView.register(ColorsTableViewCell.self, forCellReuseIdentifier: ColorsTableViewCell.identifier)
+        tableView.separatorStyle = .none
         return tableView
     }()
     
