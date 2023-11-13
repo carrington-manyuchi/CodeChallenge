@@ -33,11 +33,6 @@ class EmployeesViewModel {
                 switch result {
                 case .success(let data):
                     
-                    
-                    
-                    
-                    
-                    
                     self?.employees = data.data
                     if self?.selectedEmployee == nil {
                         self?.selectedEmployee = data.data?.first

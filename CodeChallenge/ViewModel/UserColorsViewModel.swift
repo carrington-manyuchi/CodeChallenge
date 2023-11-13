@@ -8,14 +8,15 @@
 import Foundation
 
 protocol UserColorsDelegate: BaseDelegate {
-    func navigateToHomeScreenOnLoginSuccess()
+    func dataReceived()
     
 }
 
 
 class UserColorsViewModel {
     
-    let service: ServiceCallsProtocol
+    var service: ServiceCallsProtocol
+    var selectedColor: SingleColor?
 
     private(set)  var userColors: [SingleColor]?
     private weak var delegate: UserColorsDelegate?
@@ -29,24 +30,34 @@ class UserColorsViewModel {
         
         self.delegate?.showLoadingIndicator()
         DispatchQueue.global(qos: .background).async {  [weak self] in
+            
             let result = self?.service.fetchColors()
-            switch result {
-            case .success(let colors):
-                self?.userColors = colors.data
-                DispatchQueue.main.async {
-                    self?.delegate?.hideLoadingIndicator()
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let colors):
                     
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
+                    self?.userColors = colors.data
+                   
+                    if self?.selectedColor == nil {
+                        self?.selectedColor = colors.data.first
+                    }
+                    
                     self?.delegate?.hideLoadingIndicator()
-                    print(error)
+                    self?.delegate?.dataReceived()
+                    
+                case .failure(let error):
+                    
+                    self?.delegate?.hideLoadingIndicator()
+                    self?.delegate?.showError(error: error)
+                        print(error)
+                    
+                case .none:
+                    break
                 }
-                
-            case .none:
-                break
             }
         }
     }
     
 }
+   

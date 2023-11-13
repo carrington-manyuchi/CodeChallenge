@@ -16,7 +16,18 @@ class ColorsViewController: UIViewController {
         tableView.register(ColorsTableViewCell.self, forCellReuseIdentifier: ColorsTableViewCell.identifier)
         return tableView
     }()
-
+    
+    private var viewModel:  UserColorsViewModel
+    
+    init(viewModel: UserColorsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -43,8 +54,9 @@ class ColorsViewController: UIViewController {
 }
 
 extension ColorsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return viewModel.userColors?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

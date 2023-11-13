@@ -57,6 +57,8 @@ class ColorsTableViewCell: UITableViewCell {
         cardView.addSubview(colorNameLabel)
     }
     
+    func configure(wi)
+    
     private func configureConstraints() {
         let cardViewConstraints = [
             cardView.topAnchor.constraint(equalTo: contentView.topAnchor),

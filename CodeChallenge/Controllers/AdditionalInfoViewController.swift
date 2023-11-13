@@ -100,7 +100,7 @@ class AdditionalInfoViewController: BaseViewController {
     }
     
     @objc private func selectColorCardViewTapped() {
-        let vc = ColorsViewController()
+        let vc = ColorsViewController(viewModel: <#UserColorsViewModel#>)
         navigationController?.pushViewController(vc, animated: true)
     }
     
