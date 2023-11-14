@@ -138,6 +138,9 @@ class DashboardViewController: BaseViewController {
         // Pass the selected employee to the next view controller
         additionalInfoViewController.selectedEmployee = selectedEmployee
         additionalInfoViewController.placeOfBirth = placeOfBirth.text
+        additionalInfoViewController.selectedDate = dateOfBirth.date
+        additionalInfoViewController.email = emailLabel.text
+        additionalInfoViewController.name = displayNameLabel.text
         
         navigationController?.pushViewController(additionalInfoViewController, animated: true)
     }

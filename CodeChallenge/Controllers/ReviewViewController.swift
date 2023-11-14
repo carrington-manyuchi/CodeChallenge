@@ -11,6 +11,10 @@ class ReviewViewController: BaseViewController {
     
     var placeOfBirth: String?
     var selectedSegment: String?
+    var selectedDate: Date?
+    var residentialAddress: String? 
+    var email: String?
+    var name: String?
     
     private let personalDetailsLabel: UILabel = {
         let label = UILabel()
@@ -135,6 +139,10 @@ class ReviewViewController: BaseViewController {
         
         
         placeOfBirthLabel.text = placeOfBirth
+        dateOfBirthLabel.text =  formattedDate(selectedDate) ?? ""
+        residentialAddressLabel.text = residentialAddress
+        displayFullNameLabel.text = name
+        emailLabel.text = email
     }
     
     @objc private func didTapSubmitButton() {
@@ -242,5 +250,15 @@ class ReviewViewController: BaseViewController {
         NSLayoutConstraint.activate(residentialAddressLabelConstraints)
         
         NSLayoutConstraint.activate(submitButtonConstraints)
+    }
+}
+
+
+extension ReviewViewController {
+    
+    func formattedDate(_ date: Date?) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        return date.map { dateFormatter.string(from: $0) }
     }
 }

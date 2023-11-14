@@ -15,6 +15,9 @@ import UIKit
 class AdditionalInfoViewController: BaseViewController {
     
     var placeOfBirth: String?
+    var selectedDate: Date?
+    var email: String?
+    var name: String?
     
     private let chooseGenderLabel: UILabel = {
         let label = UILabel()
@@ -143,7 +146,11 @@ class AdditionalInfoViewController: BaseViewController {
     
     @objc internal override func didTapNextButton() {
         let vc = ReviewViewController()
+        vc.name = name
+        vc.email = email
         vc.placeOfBirth = placeOfBirth
+        vc.selectedDate = selectedDate
+        vc.residentialAddress = addressTextField.text
         vc.selectedSegment = chooseGenderSegment.titleForSegment(at: chooseGenderSegment.selectedSegmentIndex)
         navigationController?.pushViewController(vc, animated: true)
     }
