@@ -46,8 +46,8 @@ class EmployViewController: UIViewController {
         title = "EmployVC"
         
         
-        nameLabel.text = email
-        surnameLabel.text = placeOfBirth
+        nameLabel.text = "Carrington"
+        surnameLabel.text = "Manyuchi"
     }
     
     @objc func nextButtonTapped() {

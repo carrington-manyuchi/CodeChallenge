@@ -9,6 +9,9 @@ import UIKit
 
 class ReviewViewController: BaseViewController {
     
+    var placeOfBirth: String?
+    var selectedSegment: String?
+    
     private let personalDetailsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -129,10 +132,14 @@ class ReviewViewController: BaseViewController {
         submitButton.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         setupUI()
         configureConstraints()
+        
+        
+        placeOfBirthLabel.text = placeOfBirth
     }
     
     @objc private func didTapSubmitButton() {
         let vc = SuccessViewController()
+       
         navigationController?.pushViewController(vc, animated: true)
     }
     

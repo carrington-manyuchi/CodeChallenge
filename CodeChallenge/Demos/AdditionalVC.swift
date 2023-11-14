@@ -24,9 +24,9 @@ class AdditionalVC: UIViewController {
         }()
     
         let segmentedControl: UISegmentedControl = {
-            let items = ["Female", "Male", "Other"]
+            let items = [ "Other", "Male", "Female" ]
             let segmentedControl = UISegmentedControl(items: items)
-            segmentedControl.selectedSegmentIndex = 2
+            segmentedControl.selectedSegmentIndex = 0
             segmentedControl.translatesAutoresizingMaskIntoConstraints = false
             return segmentedControl
         }()
@@ -63,7 +63,7 @@ class AdditionalVC: UIViewController {
             let reviewVC = ReViewController()
             reviewVC.email = email
             reviewVC.placeOfBirth = placeOfBirth
-            reviewVC.name = name
+            reviewVC.name = name 
             reviewVC.surname = surname
             reviewVC.selectedDate = datePicker.date
             reviewVC.selectedSegment = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)

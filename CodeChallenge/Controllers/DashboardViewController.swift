@@ -125,6 +125,8 @@ class DashboardViewController: BaseViewController {
     
     
     @objc internal override func didTapNextButton() {
+        
+        
         guard let selectedEmployee = viewModel.selectedEmployee else {
             // Handle the case when no employee is selected
             return
@@ -135,6 +137,7 @@ class DashboardViewController: BaseViewController {
         
         // Pass the selected employee to the next view controller
         additionalInfoViewController.selectedEmployee = selectedEmployee
+        additionalInfoViewController.placeOfBirth = placeOfBirth.text
         
         navigationController?.pushViewController(additionalInfoViewController, animated: true)
     }

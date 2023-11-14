@@ -14,6 +14,7 @@ import UIKit
 
 class AdditionalInfoViewController: BaseViewController {
     
+    var placeOfBirth: String?
     
     private let chooseGenderLabel: UILabel = {
         let label = UILabel()
@@ -35,11 +36,12 @@ class AdditionalInfoViewController: BaseViewController {
     }()
     
     private let chooseGenderSegment: UISegmentedControl = {
-        let genderArray = ["Female", "Male", "Other"]
+        let genderArray = [ "Other", "Male", "Female" ]
         let segmentedControl = UISegmentedControl(items: genderArray)
-        segmentedControl.selectedSegmentIndex = 2 // Default selection
+        segmentedControl.selectedSegmentIndex = 0 // Default selection
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.tintColor = .label
+       // segmentedControl.selectedSegmentTintColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         return segmentedControl
     }()
     
@@ -117,6 +119,7 @@ class AdditionalInfoViewController: BaseViewController {
         
         super.viewDidLoad()
         title = "Additional Info"
+        chooseGenderSegment.selectedSegmentTintColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         
         viewModel = UserColorsViewModel(delegate: self, service: ServiceCalls())
         viewModel.fetchColors()
@@ -140,6 +143,8 @@ class AdditionalInfoViewController: BaseViewController {
     
     @objc internal override func didTapNextButton() {
         let vc = ReviewViewController()
+        vc.placeOfBirth = placeOfBirth
+        vc.selectedSegment = chooseGenderSegment.titleForSegment(at: chooseGenderSegment.selectedSegmentIndex)
         navigationController?.pushViewController(vc, animated: true)
     }
     
