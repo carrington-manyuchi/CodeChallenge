@@ -141,12 +141,9 @@ class ReviewViewController: BaseViewController {
         submitButton.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         setupUI()
         configureConstraints()
-        
-        
         placeOfBirthLabel.text = userInfo.additionalInformation?.placeOfBirth
         dateOfBirthLabel.text =  userInfo.personalDetails?.dob
         residentialAddressLabel.text = userInfo.additionalInformation?.residentialAddress
-        
         
         displayFullNameLabel.text = (userInfo.personalDetails?.firstName ?? "") + " " + (userInfo.personalDetails?.lastName ?? "")
         emailLabel.text = userInfo.personalDetails?.email
@@ -280,9 +277,5 @@ extension ReviewViewController: ReviewDelegate {
     func showError(error: Error) {
         
     }
-    
-    
-  
-    
     
 }

@@ -129,27 +129,11 @@ class DashboardViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-//    @objc internal override func didTapNextButton() {
-//        let vc = AdditionalInfoViewController(viewModel: self)
-//        navigationController?.pushViewController(AdditionalInfoViewController(), animated: true)
-//    }
-    
-    
     @objc internal override func didTapNextButton() {
-        
-        
         guard let selectedEmployee = viewModel.selectedEmployee else {
             // Handle the case when no employee is selected
             return
         }
-      
-        // Pass the selected employee to the next view controller
-//        additionalInfoViewController.selectedEmployee = selectedEmployee
-//        additionalInfoViewController.placeOfBirth = placeOfBirth.text
-//        additionalInfoViewController.selectedDate = dateOfBirth.date
-//        additionalInfoViewController.email = emailLabel.text
-//        additionalInfoViewController.name = displayNameLabel.text
-//        additionalInfoViewController.image  =  avatarImageView.image
         
         viewModel.userInfo.personalDetails = PersonalDetails(id: selectedEmployee.id ?? 0,
                                                              email: selectedEmployee.email,
@@ -169,7 +153,6 @@ class DashboardViewController: BaseViewController {
 
         navigationController?.pushViewController(additionalInfoViewController, animated: true)
     }
-
     
     private func setupUI() {
         view.addSubview(dashboardTitleLabel)
@@ -180,7 +163,6 @@ class DashboardViewController: BaseViewController {
         cardView.addSubview(emailLabel)
         view.addSubview(dateOfBirth)
         view.addSubview(placeOfBirth)
-        
     }
     
     private func configureView() {
@@ -254,13 +236,10 @@ class DashboardViewController: BaseViewController {
         NSLayoutConstraint.activate(placeOfBirthConstraints)
        
     }
-
-
 }
+
 extension DashboardViewController: EmployeesDelegate
 {
-  
-    
     func dataReceived() {
         configureView()
     }

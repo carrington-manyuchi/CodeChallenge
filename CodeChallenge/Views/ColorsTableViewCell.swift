@@ -18,7 +18,6 @@ class ColorsTableViewCell: UITableViewCell {
         return myView
     }()
     
-    
     private let colorView: UIView = {
         let myView = UIView()
         myView.translatesAutoresizingMaskIntoConstraints = false
@@ -28,16 +27,6 @@ class ColorsTableViewCell: UITableViewCell {
         myView.backgroundColor = .clear
         return myView
     }()
-    
-//     let selectColorButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.backgroundColor = .clear
-//        button.layer.cornerRadius = 15
-//        button.layer.borderColor = UIColor.systemGray5.cgColor
-//        button.layer.borderWidth = 1
-//        return button
-//    }()
     
      let colorNameLabel: UILabel = {
         let label = UILabel()
@@ -89,12 +78,6 @@ class ColorsTableViewCell: UITableViewCell {
             colorView.heightAnchor.constraint(equalToConstant: 30),
             colorView.widthAnchor.constraint(equalToConstant: 30)
         ]
-        
-//        let selectColorButtonConstraints = [
-//            selectColorButton.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
-//            selectColorButton.leadingAnchor.constraint(equalTo: cardView.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-//            selectColorButton.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20),
-//        ]
         
         let colorNameLabelConstraints = [
             colorNameLabel.leadingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: 20),
