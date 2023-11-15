@@ -13,12 +13,9 @@ class BaseViewController: UIViewController {
     
     override func loadView() {
             view = UIView()
-        view.backgroundColor = .gray
-
+            view.backgroundColor = .gray
             spinner.translatesAutoresizingMaskIntoConstraints = false
-            
             view.addSubview(spinner)
-
             spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
@@ -67,7 +64,6 @@ class BaseViewController: UIViewController {
         }
     }
     
-    
     func configureNextButton() {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,13 +79,10 @@ class BaseViewController: UIViewController {
         button.widthAnchor.constraint(equalToConstant: 50).isActive = true
         button.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-        
     }
     
     @objc func didTapNextButton() {
-        
     }
-    
     
     func showLoading() {
         spinner.startAnimating()
@@ -99,7 +92,6 @@ class BaseViewController: UIViewController {
         spinner.stopAnimating()
     }
 }
-
 
 extension BaseViewController {
     
