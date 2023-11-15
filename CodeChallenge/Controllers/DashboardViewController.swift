@@ -89,13 +89,24 @@ class DashboardViewController: BaseViewController {
 
     private var viewModel: EmployeesViewModel!
     
+     var userInfo: UserInfo
+    
+    init(userInfo: UserInfo) {
+        self.userInfo = userInfo
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         self.navigationItem.hidesBackButton = true
         title = "Employee"
         
-        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls())
+        viewModel = EmployeesViewModel(delegate: self, service: ServiceCalls(), userInfo: self.userInfo)
         viewModel.fetchEmployees()
         
         setupUI()
@@ -131,18 +142,31 @@ class DashboardViewController: BaseViewController {
             // Handle the case when no employee is selected
             return
         }
+      
+        // Pass the selected employee to the next view controller
+//        additionalInfoViewController.selectedEmployee = selectedEmployee
+//        additionalInfoViewController.placeOfBirth = placeOfBirth.text
+//        additionalInfoViewController.selectedDate = dateOfBirth.date
+//        additionalInfoViewController.email = emailLabel.text
+//        additionalInfoViewController.name = displayNameLabel.text
+//        additionalInfoViewController.image  =  avatarImageView.image
+        
+        viewModel.userInfo.personalDetails = PersonalDetails(id: selectedEmployee.id ?? 0,
+                                                             email: selectedEmployee.email,
+                                                             firstName: selectedEmployee.firstName,
+                                                             lastName: selectedEmployee.lastName,
+                                                             avatar: selectedEmployee.avatar,
+                                                             dob: self.formattedDate(dateOfBirth.date),
+                                                             gender: nil)
+        viewModel.userInfo.additionalInformation = AdditionalInformation(placeOfBirth: placeOfBirth.text,
+                                                                         preferredColor: nil,
+                                                                         residentialAddress: nil)
+        
         
         let additionalInfoViewModel = UserColorsViewModel(delegate: nil, service: ServiceCalls())
-        let additionalInfoViewController = AdditionalInfoViewController(viewModel: additionalInfoViewModel)
+        let additionalInfoViewController = AdditionalInfoViewController(viewModel: additionalInfoViewModel, userInfo: viewModel.userInfo)
         
-        // Pass the selected employee to the next view controller
-        additionalInfoViewController.selectedEmployee = selectedEmployee
-        additionalInfoViewController.placeOfBirth = placeOfBirth.text
-        additionalInfoViewController.selectedDate = dateOfBirth.date
-        additionalInfoViewController.email = emailLabel.text
-        additionalInfoViewController.name = displayNameLabel.text
-        additionalInfoViewController.image  =  avatarImageView.image
-        
+
         navigationController?.pushViewController(additionalInfoViewController, animated: true)
     }
 
@@ -242,11 +266,11 @@ extension DashboardViewController: EmployeesDelegate
     }
     
     func showLoadingIndicator() {
-    
+        self.showLoading()
     }
     
     func hideLoadingIndicator() {
-    
+        self.hideLoading()
     }
     
     func showError(error: Error) {

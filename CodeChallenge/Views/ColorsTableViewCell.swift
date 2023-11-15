@@ -72,14 +72,6 @@ class ColorsTableViewCell: UITableViewCell {
     func configure(with color: SingleColor) {
         colorNameLabel.text = color.name
         colorView.backgroundColor = UIColor(hex: color.color)
-       // let colorName = color.color
-       // let nameColor = Int(colorName)
-      // selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
-        
-   //     colorView.backgroundColor = UIColor(named: colorName)
-        
-        
-        
     }
     
     private func configureConstraints() {
@@ -89,8 +81,6 @@ class ColorsTableViewCell: UITableViewCell {
             cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ]
-        
-        
         
         let colorViewButtonConstraints = [
             colorView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),

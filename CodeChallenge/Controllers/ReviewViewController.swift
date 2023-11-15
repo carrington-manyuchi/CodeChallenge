@@ -9,15 +9,6 @@ import UIKit
 
 class ReviewViewController: BaseViewController {
     
-    var placeOfBirth: String?
-    var selectedSegment: String?
-    var selectedDate: Date?
-    var residentialAddress: String? 
-    var email: String?
-    var name: String?
-    var image: UIImage?
-    var color: String?
-    
     private let personalDetailsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -129,6 +120,18 @@ class ReviewViewController: BaseViewController {
         return button
     }()
     
+    private lazy var viewModel = ReviewViewModel(delegate: self, service: ServiceCalls(), userInfo: self.userInfo)
+     var userInfo: UserInfo
+    
+    init(userInfo: UserInfo) {
+        self.userInfo = userInfo
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
@@ -140,19 +143,19 @@ class ReviewViewController: BaseViewController {
         configureConstraints()
         
         
-        placeOfBirthLabel.text = placeOfBirth
-        dateOfBirthLabel.text =  formattedDate(selectedDate) ?? ""
-        residentialAddressLabel.text = residentialAddress
-        displayFullNameLabel.text = name
-        emailLabel.text = email
-        avatarImageView.image = image
-        colorNameLabel.text = color
+        placeOfBirthLabel.text = userInfo.additionalInformation?.placeOfBirth
+        dateOfBirthLabel.text =  userInfo.personalDetails?.dob
+        residentialAddressLabel.text = userInfo.additionalInformation?.residentialAddress
+        
+        
+        displayFullNameLabel.text = (userInfo.personalDetails?.firstName ?? "") + " " + (userInfo.personalDetails?.lastName ?? "")
+        emailLabel.text = userInfo.personalDetails?.email
+        avatarImageView.downloaded(from: userInfo.personalDetails?.avatar ?? "")
+        colorNameLabel.text = userInfo.additionalInformation?.preferredColor
     }
     
     @objc private func didTapSubmitButton() {
-        let vc = SuccessViewController()
-       
-        navigationController?.pushViewController(vc, animated: true)
+        viewModel.submit()
     }
     
     private func setupUI() {
@@ -258,11 +261,28 @@ class ReviewViewController: BaseViewController {
 }
 
 
-extension ReviewViewController {
-    
-    func formattedDate(_ date: Date?) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy"
-        return date.map { dateFormatter.string(from: $0) }
+extension ReviewViewController: ReviewDelegate {
+    func showSuccessScreen() {
+        
+        let vc = SuccessViewController()
+       
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func showLoadingIndicator() {
+        self.showLoading()
+    }
+    
+    func hideLoadingIndicator() {
+        self.hideLoading()
+    }
+    
+    func showError(error: Error) {
+        
+    }
+    
+    
+  
+    
+    
 }

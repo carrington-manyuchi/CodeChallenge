@@ -12,7 +12,7 @@ protocol ServiceCallsProtocol {
     func login(username: String, password: String) -> Result<Login, APIError>
     func fetchEmployees() ->  Result<Employees, APIError>
     func fetchColors() -> Result<UserColor, APIError>
-   // func updateUser(user: User, completion result: @escaping (Result<[Post], APIError>) -> Void)
+    func updateUser(user: UserInfo) ->  Result<UserInfo, APIError>
         
 }
 
@@ -42,9 +42,12 @@ class ServiceCalls: ServiceCallsProtocol, APICallService {
         return fetchResources(url: url)
     }
     
-//    func updateUser(user: User, completion result: @escaping (Result<[Post], APIError>) -> Void) {
-//        let url  = URL(string: "https://reqres.in/api/users")
-//        return postResources(url: url, body: user, completion: result)
-//        //convert from being a model to data aboject (obj of type data)
-//    }
+    func updateUser(user: UserInfo) ->  Result<UserInfo, APIError>  {
+        guard let url  = URL(string: "https://reqres.in/api/users"),
+              let requestBody = try? JSONEncoder().encode(user) else {
+            return .failure(.invalidURL)
+        }
+        return postResources(url: url, body: requestBody)
+        //convert from being a model to data aboject (obj of type data)
+    }
 }

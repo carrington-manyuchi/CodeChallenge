@@ -29,6 +29,8 @@
 		8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */; };
 		8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */; };
 		8C049BE92AFF587900012905 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE82AFF587900012905 /* SuccessViewController.swift */; };
+		8C448CD72B051C060003BF18 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C448CD62B051C060003BF18 /* ReviewViewModel.swift */; };
+		8C448CD92B051ED60003BF18 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C448CD82B051ED60003BF18 /* UserInfo.swift */; };
 		8C71345B2B02949900E93197 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345A2B02949900E93197 /* HomeViewController.swift */; };
 		8C71345D2B02956500E93197 /* EmployViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345C2B02956500E93197 /* EmployViewController.swift */; };
 		8C71345F2B02A31800E93197 /* AdditionalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345E2B02A31800E93197 /* AdditionalVC.swift */; };
@@ -64,6 +66,8 @@
 		8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 		8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserColorsViewModel.swift; sourceTree = "<group>"; };
 		8C049BE82AFF587900012905 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		8C448CD62B051C060003BF18 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		8C448CD82B051ED60003BF18 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8C71345A2B02949900E93197 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8C71345C2B02956500E93197 /* EmployViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployViewController.swift; sourceTree = "<group>"; };
 		8C71345E2B02A31800E93197 /* AdditionalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalVC.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				8C049BD42AFE67C600012905 /* Employees.swift */,
 				8C049BD82AFE6A7500012905 /* UserRequest.swift */,
 				8C049BD62AFE682600012905 /* UserColor.swift */,
+				8C448CD82B051ED60003BF18 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				8C049BDB2AFE70F700012905 /* LoginViewModel.swift */,
 				8C049BDF2AFE87A000012905 /* EmployeesViewModel.swift */,
 				8C049BE12AFE87BA00012905 /* UserColorsViewModel.swift */,
+				8C448CD62B051C060003BF18 /* ReviewViewModel.swift */,
 				8C049BDD2AFE7C5300012905 /* UserDelegate.swift */,
 			);
 			path = ViewModel;
@@ -307,6 +313,7 @@
 				8C71345B2B02949900E93197 /* HomeViewController.swift in Sources */,
 				8C049BCB2AFE59CB00012905 /* APIError.swift in Sources */,
 				8CD3385B2AFF68A800D660EC /* ColorsViewController.swift in Sources */,
+				8C448CD92B051ED60003BF18 /* UserInfo.swift in Sources */,
 				8C049BB12AFD467900012905 /* LoginViewController.swift in Sources */,
 				8C049BD72AFE682600012905 /* UserColor.swift in Sources */,
 				8C049BBB2AFD67EA00012905 /* EmployeesTableViewCell.swift in Sources */,
@@ -315,6 +322,7 @@
 				8C049BC72AFE593F00012905 /* APICallService.swift in Sources */,
 				8C049BC12AFE05A300012905 /* AdditionalInfoViewController.swift in Sources */,
 				8C049BD32AFE66F300012905 /* Login.swift in Sources */,
+				8C448CD72B051C060003BF18 /* ReviewViewModel.swift in Sources */,
 				8C049BCD2AFE5A2E00012905 /* Reachability.swift in Sources */,
 				8C049BD92AFE6A7500012905 /* UserRequest.swift in Sources */,
 			);

@@ -125,8 +125,8 @@
             filePath = "CodeChallenge/ViewModel/EmployeesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "fetchEmployees()"
             landmarkType = "7">
             <Locations>
@@ -175,6 +175,21 @@
                   endingLineNumber = "36"
                   offsetFromSymbolStart = "180">
                </Location>
+               <Location
+                  uuid = "53FD18D7-F355-48A2-9697-F0241A415CAF - 55982e4fe6fe2e0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable () -&gt; () in CodeChallenge.EmployeesViewModel.fetchEmployees() -&gt; ()"
+                  moduleName = "CodeChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damacm1157/Desktop/Standard%20Bank/CodeChallenge/CodeChallenge/ViewModel/EmployeesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "180">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -204,8 +219,8 @@
             filePath = "CodeChallenge/Controllers/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "dataReceived()"
             landmarkType = "7">
          </BreakpointContent>
@@ -214,14 +229,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "85B56530-ADB8-4A3A-AC64-1A7CD6EF1D96"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CodeChallenge/Controllers/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "dataReceived()"
             landmarkType = "7">
          </BreakpointContent>

@@ -9,6 +9,20 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
+    var spinner = UIActivityIndicatorView(style: .large)
+    
+    override func loadView() {
+            view = UIView()
+        view.backgroundColor = .gray
+
+            spinner.translatesAutoresizingMaskIntoConstraints = false
+            
+            view.addSubview(spinner)
+
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -78,11 +92,11 @@ class BaseViewController: UIViewController {
     
     
     func showLoading() {
-        
+        spinner.startAnimating()
     }
     
     func hideLoading() {
-        
+        spinner.stopAnimating()
     }
 }
 
@@ -96,5 +110,11 @@ extension BaseViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    func formattedDate(_ date: Date?) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        return date.map { dateFormatter.string(from: $0) }
     }
 }

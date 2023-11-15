@@ -49,12 +49,12 @@ class LoginViewController: BaseViewController {
         button.layer.shadowColor = UIColor.systemGray.cgColor
         button.layer.shadowOffset = CGSize(width: 3, height: 7)
         button.layer.shadowOpacity = 0.9
-        
-       
         return button
     }()
     
     private lazy var viewModel = LoginViewModel(delegate: self, service: ServiceCalls())
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +145,7 @@ extension LoginViewController: LoginDelegate {
     
     func navigateToHomeScreenOnLoginSuccess() {
         
-        let vc  = DashboardViewController()
+        let vc  = DashboardViewController(userInfo:  UserInfo(userLoginToken: viewModel.login?.token ?? "", personalDetails: nil, additionalInformation: nil))
         navigationController?.pushViewController(vc, animated: true)
     }
     

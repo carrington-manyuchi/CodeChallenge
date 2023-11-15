@@ -40,7 +40,7 @@ class AdditionalInfoViewController: BaseViewController {
     }()
     
     private let chooseGenderSegment: UISegmentedControl = {
-        let genderArray = [ "Other", "Male", "Female" ]
+        let genderArray = ["Male", "Female", "Other" ]
         let segmentedControl = UISegmentedControl(items: genderArray)
         segmentedControl.selectedSegmentIndex = 0 // Default selection
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -66,16 +66,6 @@ class AdditionalInfoViewController: BaseViewController {
         myView.layer.borderWidth = 1
         return myView
     }()
-    
-//    private let selectColorButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.backgroundColor = .clear
-//        button.layer.cornerRadius = 15
-//        button.layer.borderColor = UIColor.systemGray5.cgColor
-//        button.layer.borderWidth = 1
-//        return button
-//    }()
     
     private let colorNameLabel: UILabel = {
         let label = UILabel()
@@ -108,10 +98,11 @@ class AdditionalInfoViewController: BaseViewController {
     private var viewModel:  UserColorsViewModel
     
     var selectedEmployee: Employee?
-
+    var userInfo: UserInfo
     
-    init(viewModel: UserColorsViewModel) {
+    init(viewModel: UserColorsViewModel, userInfo: UserInfo) {
         self.viewModel = viewModel
+        self.userInfo = userInfo
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -137,24 +128,16 @@ class AdditionalInfoViewController: BaseViewController {
         selectColorCardView.isUserInteractionEnabled = true
     }
    
-
-    
     @objc private func selectColorCardViewTapped() {
         let vc = ColorsViewController(viewModel: viewModel)
         navigationController?.pushViewController(vc, animated: true)
     }
-
     
     @objc internal override func didTapNextButton() {
-        let vc = ReviewViewController()
-        vc.name = name
-        vc.email = email
-        vc.image = image
-        vc.placeOfBirth = placeOfBirth
-        vc.selectedDate = selectedDate
-        vc.residentialAddress = addressTextField.text
-        vc.color = colorNameLabel.text
-        vc.selectedSegment = chooseGenderSegment.titleForSegment(at: chooseGenderSegment.selectedSegmentIndex)
+        self.userInfo.personalDetails?.gender = chooseGenderSegment.titleForSegment(at: chooseGenderSegment.selectedSegmentIndex)
+        self.userInfo.additionalInformation?.residentialAddress = addressTextField.text
+        self.userInfo.additionalInformation?.preferredColor = colorNameLabel.text
+        let vc = ReviewViewController(userInfo: self.userInfo)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -170,23 +153,10 @@ class AdditionalInfoViewController: BaseViewController {
         view.addSubview(addressTextField)
     }
     
-//    private func  configureView() {
-//        colorNameLabel.text = viewModel.selectedColor?.name
-//       // selectColorButton.backgroundColor = viewModel.selectedColor?.color
-//    }
-    
     private func configureView() {
-        
         colorNameLabel.text = viewModel.selectedColor?.name
-        
         let color = viewModel.selectedColor?.color
         colorView.backgroundColor = UIColor(hex: color ?? "")
-
-        //colorView.backgroundColor = viewModel.selectedColor?.UIColor(hex: color.na)
-      //let color = UIColor(hex: color.color)
-        //let colorName = viewModel.selectedColor?.color
-       // selectColorButton.backgroundColor = UIColor(hex: ((Int("/(colorName.hex)" ) ?? 0  )))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -195,7 +165,6 @@ class AdditionalInfoViewController: BaseViewController {
     }
     
     private func configureConstraints() {
-        
         let chooseGenderLabelConstraints = [
             chooseGenderLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             chooseGenderLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -224,14 +193,6 @@ class AdditionalInfoViewController: BaseViewController {
             nextImageView.centerYAnchor.constraint(equalTo: selectColorCardView.centerYAnchor),
         ]
         
-//        let selectColorButtonConstraints = [
-//            selectColorButton.topAnchor.constraint(equalTo: selectColorCardView.topAnchor, constant: 20),
-//            selectColorButton.leadingAnchor.constraint(equalTo: selectColorCardView.leadingAnchor, constant: 30),
-//            selectColorButton.bottomAnchor.constraint(equalTo: selectColorCardView.bottomAnchor, constant: -20),
-//            selectColorButton.heightAnchor.constraint(equalToConstant: 30),
-//            selectColorButton.widthAnchor.constraint(equalToConstant: 30)
-//        ]
-        
         let colorViewConstraints = [
             colorView.topAnchor.constraint(equalTo: selectColorCardView.topAnchor, constant: 20),
             colorView.leadingAnchor.constraint(equalTo: selectColorCardView.leadingAnchor, constant: 30),
@@ -240,10 +201,7 @@ class AdditionalInfoViewController: BaseViewController {
             colorView.widthAnchor.constraint(equalToConstant: 30)
         ]
         
-        
-        
         let colorNameLabelConstraints = [
-            //colorNameLabel.topAnchor.constraint(equalTo: selectColorButton.topAnchor),
             colorNameLabel.leadingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: 10),
             colorNameLabel.centerYAnchor.constraint(equalTo: colorView.centerYAnchor),
         ]
@@ -259,7 +217,6 @@ class AdditionalInfoViewController: BaseViewController {
         NSLayoutConstraint.activate(chooseGenderSegmentConstraints)
         NSLayoutConstraint.activate(selectEmployeePrefferedColorLabelConstraints)
         NSLayoutConstraint.activate(selectColorCardViewConstraints)
-        //NSLayoutConstraint.activate(selectColorButtonConstraints)
         NSLayoutConstraint.activate(colorNameLabelConstraints)
         NSLayoutConstraint.activate(nextImageViewConstraints)
         NSLayoutConstraint.activate(addressTextFieldConstraints)
@@ -268,20 +225,17 @@ class AdditionalInfoViewController: BaseViewController {
     }
 }
 
-
-
-
 extension AdditionalInfoViewController: UserColorsDelegate {
     func dataReceived() {
         configureView()
     }
     
     func showLoadingIndicator() {
-        
+        self.showLoading()
     }
     
     func hideLoadingIndicator() {
-        
+        self.hideLoading()
     }
     
     func showError(error: Error) {

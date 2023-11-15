@@ -16,10 +16,12 @@ class EmployeesViewModel {
     
     private(set) var employees: [Employee]?
     private weak var delegate: EmployeesDelegate?
+     var userInfo: UserInfo
     
-    init(delegate: EmployeesDelegate?, service: ServiceCallsProtocol) {
+    init(delegate: EmployeesDelegate?, service: ServiceCallsProtocol, userInfo: UserInfo) {
         self.service = service
         self.delegate = delegate
+        self.userInfo = userInfo
     }
     
     func fetchEmployees() {
@@ -38,8 +40,10 @@ class EmployeesViewModel {
                     if self?.selectedEmployee == nil {
                         self?.selectedEmployee = data.data?.first
                     }
+                    
                     self?.delegate?.hideLoadingIndicator()
                     self?.delegate?.dataReceived()
+                    
                     
                 case .failure(let error):
                     
