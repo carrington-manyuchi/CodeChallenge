@@ -60,7 +60,9 @@ extension APICallService {
 
             return .success(value)
         } catch(let error) {
+            print(error)
             return .failure(.requestFailed)
+            
         }
     }
 

@@ -25,6 +25,7 @@ class EmployeesViewModel {
     func fetchEmployees() {
         
         self.delegate?.showLoadingIndicator()
+        
         DispatchQueue.global(qos: .background).async {  [weak self] in
             
             let result = self?.service.fetchEmployees()

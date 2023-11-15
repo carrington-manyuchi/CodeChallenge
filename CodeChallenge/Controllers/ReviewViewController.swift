@@ -15,6 +15,8 @@ class ReviewViewController: BaseViewController {
     var residentialAddress: String? 
     var email: String?
     var name: String?
+    var image: UIImage?
+    var color: String?
     
     private let personalDetailsLabel: UILabel = {
         let label = UILabel()
@@ -143,6 +145,8 @@ class ReviewViewController: BaseViewController {
         residentialAddressLabel.text = residentialAddress
         displayFullNameLabel.text = name
         emailLabel.text = email
+        avatarImageView.image = image
+        colorNameLabel.text = color
     }
     
     @objc private func didTapSubmitButton() {

@@ -150,12 +150,12 @@
 		8C049BE62AFEDCE500012905 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8C049BB22AFD46D700012905 /* OnboardingViewController.swift */,
+				8C049BB02AFD467900012905 /* LoginViewController.swift */,
 				8C049BBC2AFDECB200012905 /* DashboardViewController.swift */,
 				8C049BB82AFD674700012905 /* EmployeesViewController.swift */,
 				8C049BC42AFE4DD700012905 /* BaseViewController.swift */,
-				8C049BB22AFD46D700012905 /* OnboardingViewController.swift */,
 				8C049BC02AFE05A300012905 /* AdditionalInfoViewController.swift */,
-				8C049BB02AFD467900012905 /* LoginViewController.swift */,
 				8C049BC22AFE249100012905 /* ReviewViewController.swift */,
 				8C049BE82AFF587900012905 /* SuccessViewController.swift */,
 				8CD3385A2AFF68A800D660EC /* ColorsViewController.swift */,

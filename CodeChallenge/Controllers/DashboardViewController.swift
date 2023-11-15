@@ -141,6 +141,7 @@ class DashboardViewController: BaseViewController {
         additionalInfoViewController.selectedDate = dateOfBirth.date
         additionalInfoViewController.email = emailLabel.text
         additionalInfoViewController.name = displayNameLabel.text
+        additionalInfoViewController.image  =  avatarImageView.image
         
         navigationController?.pushViewController(additionalInfoViewController, animated: true)
     }
@@ -159,7 +160,7 @@ class DashboardViewController: BaseViewController {
     }
     
     private func configureView() {
-        displayNameLabel.text = viewModel.selectedEmployee?.firstName
+        displayNameLabel.text = (viewModel.selectedEmployee?.firstName ?? "") + " " + (viewModel.selectedEmployee?.lastName ?? "")
         emailLabel.text = viewModel.selectedEmployee?.email
         if let url = URL(string: viewModel.selectedEmployee?
             .avatar ?? "") {

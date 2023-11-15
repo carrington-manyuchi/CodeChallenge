@@ -18,6 +18,7 @@ class AdditionalInfoViewController: BaseViewController {
     var selectedDate: Date?
     var email: String?
     var name: String?
+    var image: UIImage?
     
     private let chooseGenderLabel: UILabel = {
         let label = UILabel()
@@ -148,9 +149,11 @@ class AdditionalInfoViewController: BaseViewController {
         let vc = ReviewViewController()
         vc.name = name
         vc.email = email
+        vc.image = image
         vc.placeOfBirth = placeOfBirth
         vc.selectedDate = selectedDate
         vc.residentialAddress = addressTextField.text
+        vc.color = colorNameLabel.text
         vc.selectedSegment = chooseGenderSegment.titleForSegment(at: chooseGenderSegment.selectedSegmentIndex)
         navigationController?.pushViewController(vc, animated: true)
     }
