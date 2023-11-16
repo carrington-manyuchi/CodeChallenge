@@ -31,10 +31,6 @@
 		8C049BE92AFF587900012905 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C049BE82AFF587900012905 /* SuccessViewController.swift */; };
 		8C448CD72B051C060003BF18 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C448CD62B051C060003BF18 /* ReviewViewModel.swift */; };
 		8C448CD92B051ED60003BF18 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C448CD82B051ED60003BF18 /* UserInfo.swift */; };
-		8C71345B2B02949900E93197 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345A2B02949900E93197 /* HomeViewController.swift */; };
-		8C71345D2B02956500E93197 /* EmployViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345C2B02956500E93197 /* EmployViewController.swift */; };
-		8C71345F2B02A31800E93197 /* AdditionalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71345E2B02A31800E93197 /* AdditionalVC.swift */; };
-		8C7134612B02A53900E93197 /* ReViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7134602B02A53900E93197 /* ReViewController.swift */; };
 		8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */; };
 		8C7DF5DB2AFD41080003DD45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */; };
 		8C7DF5E22AFD410A0003DD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C7DF5E12AFD410A0003DD45 /* Assets.xcassets */; };
@@ -68,10 +64,6 @@
 		8C049BE82AFF587900012905 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		8C448CD62B051C060003BF18 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		8C448CD82B051ED60003BF18 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		8C71345A2B02949900E93197 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		8C71345C2B02956500E93197 /* EmployViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployViewController.swift; sourceTree = "<group>"; };
-		8C71345E2B02A31800E93197 /* AdditionalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalVC.swift; sourceTree = "<group>"; };
-		8C7134602B02A53900E93197 /* ReViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReViewController.swift; sourceTree = "<group>"; };
 		8C7DF5D52AFD41080003DD45 /* CodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7DF5D82AFD41080003DD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C7DF5DA2AFD41080003DD45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,17 +172,6 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		8C7134592B02948700E93197 /* Demos */ = {
-			isa = PBXGroup;
-			children = (
-				8C71345A2B02949900E93197 /* HomeViewController.swift */,
-				8C71345C2B02956500E93197 /* EmployViewController.swift */,
-				8C71345E2B02A31800E93197 /* AdditionalVC.swift */,
-				8C7134602B02A53900E93197 /* ReViewController.swift */,
-			);
-			path = Demos;
-			sourceTree = "<group>";
-		};
 		8C7DF5CC2AFD41080003DD45 = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +191,6 @@
 		8C7DF5D72AFD41080003DD45 /* CodeChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				8C7134592B02948700E93197 /* Demos */,
 				8C049BE72AFEDD7E00012905 /* Supporting */,
 				8C049BB42AFD492900012905 /* Utils */,
 				8C049BD12AFE66D900012905 /* Models */,
@@ -296,21 +276,17 @@
 				8C049BBD2AFDECB200012905 /* DashboardViewController.swift in Sources */,
 				8C049BDC2AFE70F700012905 /* LoginViewModel.swift in Sources */,
 				8CD3385D2AFF68C700D660EC /* ColorsTableViewCell.swift in Sources */,
-				8C7134612B02A53900E93197 /* ReViewController.swift in Sources */,
 				8C049BE22AFE87BA00012905 /* UserColorsViewModel.swift in Sources */,
 				8C049BE02AFE87A000012905 /* EmployeesViewModel.swift in Sources */,
 				8C049BB92AFD674700012905 /* EmployeesViewController.swift in Sources */,
 				8C049BC92AFE59A000012905 /* URLSession+Extension.swift in Sources */,
-				8C71345F2B02A31800E93197 /* AdditionalVC.swift in Sources */,
 				8C049BC32AFE249100012905 /* ReviewViewController.swift in Sources */,
 				8C7DF5D92AFD41080003DD45 /* AppDelegate.swift in Sources */,
 				8C049BC52AFE4DD700012905 /* BaseViewController.swift in Sources */,
-				8C71345D2B02956500E93197 /* EmployViewController.swift in Sources */,
 				8C049BD02AFE5E8C00012905 /* ServiceCalls.swift in Sources */,
 				8C049BB32AFD46D700012905 /* OnboardingViewController.swift in Sources */,
 				8C049BDE2AFE7C5300012905 /* UserDelegate.swift in Sources */,
 				8C049BD52AFE67C600012905 /* Employees.swift in Sources */,
-				8C71345B2B02949900E93197 /* HomeViewController.swift in Sources */,
 				8C049BCB2AFE59CB00012905 /* APIError.swift in Sources */,
 				8CD3385B2AFF68A800D660EC /* ColorsViewController.swift in Sources */,
 				8C448CD92B051ED60003BF18 /* UserInfo.swift in Sources */,

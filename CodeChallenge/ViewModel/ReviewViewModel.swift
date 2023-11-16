@@ -43,6 +43,7 @@ class ReviewViewModel {
                 DispatchQueue.main.async {
                     self?.delegate?.hideLoadingIndicator()
                     self?.delegate?.showSuccessScreen()
+                    print(userInfo)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
