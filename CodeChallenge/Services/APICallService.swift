@@ -29,22 +29,29 @@ protocol APICallService {
 
 /**Now implementing the two methods declared in the APICallService protocol above.*/
 extension APICallService {
+    var apiKey: String {
+        return "reqres-free-v1"
+    }
     
     func fetchResources<T: Decodable>(url: URL) -> Result<T, APIError> {
         let internetReachability = Reachability()
-
-        guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+        
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             return .failure(.invalidURL)
         }
-
+        
+        var queryItems = urlComponents.queryItems ?? []
+        queryItems.append(URLQueryItem(name: "apiKey", value: apiKey))
+        urlComponents.queryItems = queryItems
+        
         guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }
-
+        
         if !internetReachability.isInternetAvailable() {
             return .failure(.networkError)
         }
-
+        
         do {
             /**to perform a synchronous network request.**/
             let (data, response) = try URLSession.shared.synchronousDataTask(with: url)
@@ -53,11 +60,11 @@ extension APICallService {
                   (200..<299).contains(httpResponse.statusCode) else {
                 return .failure(.requestFailed)
             }
-
+            
             let decoder = JSONDecoder()
             //decoder.keyDecodingStrategy = .convertFromSnakeCase
             let value = try decoder.decode(T.self, from: data)
-
+            
             return .success(value)
         } catch(let error) {
             print(error)
@@ -65,29 +72,31 @@ extension APICallService {
             
         }
     }
-
+    
     func postResources<T: Decodable>(url: URL, body: Data?) -> Result<T, APIError> {
         guard Reachability().isInternetAvailable() else {
             return .failure(.networkError)
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = body
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        request.setValue(apiKey, forHTTPHeaderField: "X-API-Key")
+        
+        
         do {
             let (data, response) = try URLSession.shared.synchronousDataTask(with: request)
-
+            
             guard let httpResponse = response as? HTTPURLResponse,
                   (200..<299).contains(httpResponse.statusCode) else {
                 return .failure(.requestFailed)
             }
-
+            
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let value = try decoder.decode(T.self, from: data)
-
+            
             return .success(value)
         } catch {
             return .failure(.requestFailed)
@@ -101,54 +110,54 @@ extension URLSession {
         var data: Data?
         var response: URLResponse?
         var error: Error?
-
+        
         /**Controls access to a shared resource by multiple threads. Limits the # of threads that can use the resource at the same time**/
         let semaphore = DispatchSemaphore(value: 0)
-
+        
         dataTask(with: url) {
             data = $0
             response = $1
             error = $2
             semaphore.signal()
         }.resume()
-
+        
         semaphore.wait()
-
+        
         if let error = error {
             throw error
         }
-
+        
         guard let responseData = data, let response = response else {
             throw NSError(domain: "Invalid response or data", code: 0, userInfo: nil)
         }
-
+        
         return (responseData, response)
     }
-
+    
     func synchronousDataTask(with request: URLRequest) throws -> (Data, URLResponse) {
         var data: Data?
         var response: URLResponse?
         var error: Error?
-
+        
         let semaphore = DispatchSemaphore(value: 0)
-
+        
         dataTask(with: request) {
             data = $0
             response = $1
             error = $2
             semaphore.signal()
         }.resume()
-
+        
         semaphore.wait()
-
+        
         if let error = error {
             throw error
         }
-
+        
         guard let responseData = data, let response = response else {
             throw NSError(domain: "Invalid response or data", code: 0, userInfo: nil)
         }
-
+        
         return (responseData, response)
     }
 }

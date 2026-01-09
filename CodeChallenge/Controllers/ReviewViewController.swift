@@ -134,13 +134,17 @@ class ReviewViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.backgroundColor = .blue
         title = "Review"
+        
         submitButton.backgroundColor = UIColorFromRGB(rgbValue: 0x39A7FF)
         submitButton.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
+        
         setupUI()
         configureConstraints()
+        
         placeOfBirthLabel.text = userInfo.additionalInformation?.placeOfBirth
         dateOfBirthLabel.text =  userInfo.personalDetails?.dob
         residentialAddressLabel.text = userInfo.additionalInformation?.residentialAddress
